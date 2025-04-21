@@ -1,0 +1,5 @@
+D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/HangManQT.dir
+D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/HangManQT_autogen_timestamp_deps.dir
+D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/HangManQT_autogen.dir
