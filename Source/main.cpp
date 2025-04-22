@@ -7,6 +7,10 @@
 
 int main(int argc, char *argv[]) {
 
+    QGuiApplication::setHighDpiScaleFactorRoundingPolicy(
+        Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor
+        );
+
     QApplication app(argc, argv);
 
     MainWindow w;

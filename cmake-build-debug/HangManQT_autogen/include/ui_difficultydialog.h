@@ -27,12 +27,12 @@ public:
     QPushButton *buttonMedium;
     QPushButton *buttonHard;
 
-    void setupUi(QDialog *Dialog)
+    void setupUi(QDialog *difficultyDialog)
     {
-        if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName("Dialog");
-        Dialog->resize(287, 253);
-        verticalLayoutWidget = new QWidget(Dialog);
+        if (difficultyDialog->objectName().isEmpty())
+            difficultyDialog->setObjectName("difficultyDialog");
+        difficultyDialog->resize(287, 253);
+        verticalLayoutWidget = new QWidget(difficultyDialog);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
         verticalLayoutWidget->setGeometry(QRect(40, 27, 211, 191));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
@@ -46,6 +46,11 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(buttonEasy->sizePolicy().hasHeightForWidth());
         buttonEasy->setSizePolicy(sizePolicy);
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Comic Sans MS")});
+        font.setPointSize(12);
+        font.setBold(true);
+        buttonEasy->setFont(font);
 
         verticalLayout->addWidget(buttonEasy);
 
@@ -53,6 +58,7 @@ public:
         buttonMedium->setObjectName("buttonMedium");
         sizePolicy.setHeightForWidth(buttonMedium->sizePolicy().hasHeightForWidth());
         buttonMedium->setSizePolicy(sizePolicy);
+        buttonMedium->setFont(font);
 
         verticalLayout->addWidget(buttonMedium);
 
@@ -60,18 +66,19 @@ public:
         buttonHard->setObjectName("buttonHard");
         sizePolicy.setHeightForWidth(buttonHard->sizePolicy().hasHeightForWidth());
         buttonHard->setSizePolicy(sizePolicy);
+        buttonHard->setFont(font);
 
         verticalLayout->addWidget(buttonHard);
 
 
-        retranslateUi(Dialog);
+        retranslateUi(difficultyDialog);
 
-        QMetaObject::connectSlotsByName(Dialog);
+        QMetaObject::connectSlotsByName(difficultyDialog);
     } // setupUi
 
-    void retranslateUi(QDialog *Dialog)
+    void retranslateUi(QDialog *difficultyDialog)
     {
-        Dialog->setWindowTitle(QCoreApplication::translate("DifficultyDialog", "Dialog", nullptr));
+        difficultyDialog->setWindowTitle(QCoreApplication::translate("DifficultyDialog", "Choose difficulty", nullptr));
         buttonEasy->setText(QCoreApplication::translate("DifficultyDialog", "EASY", nullptr));
         buttonMedium->setText(QCoreApplication::translate("DifficultyDialog", "MEDIUM", nullptr));
         buttonHard->setText(QCoreApplication::translate("DifficultyDialog", "HARD", nullptr));
