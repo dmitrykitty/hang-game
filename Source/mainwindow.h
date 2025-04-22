@@ -24,6 +24,8 @@ private slots:
     void statisticsClicked();
     void exitClicked();
 
+    void backClicked();
+
     void onLetterClicked(QChar ch);
 
 

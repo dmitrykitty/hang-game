@@ -80,6 +80,7 @@ public:
     QLabel *label_2;
     QWidget *pageSettings;
     QLabel *label_3;
+    QPushButton *buttonBack;
     QMenuBar *menubar;
     QMenu *menuhangman;
     QStatusBar *statusbar;
@@ -200,7 +201,7 @@ public:
 
         verticalLayout_3->setStretch(1, 5);
 
-        gridLayout_2->addLayout(verticalLayout_3, 0, 0, 1, 1);
+        gridLayout_2->addLayout(verticalLayout_3, 2, 0, 1, 1);
 
         stackedWidget->addWidget(pageMenu);
         pageGame = new QWidget();
@@ -454,7 +455,19 @@ public:
         label_3->setGeometry(QRect(140, 130, 63, 20));
         stackedWidget->addWidget(pageSettings);
 
-        gridLayout->addWidget(stackedWidget, 0, 0, 1, 1);
+        gridLayout->addWidget(stackedWidget, 1, 0, 1, 1);
+
+        buttonBack = new QPushButton(centralwidget);
+        buttonBack->setObjectName("buttonBack");
+        buttonBack->setEnabled(true);
+        QSizePolicy sizePolicy4(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Preferred);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(buttonBack->sizePolicy().hasHeightForWidth());
+        buttonBack->setSizePolicy(sizePolicy4);
+        buttonBack->setFont(font1);
+
+        gridLayout->addWidget(buttonBack, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -472,7 +485,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(buttonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -515,6 +528,7 @@ public:
         buttonA->setText(QCoreApplication::translate("MainWindow", "A", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "SETTINGS", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "STATS", nullptr));
+        buttonBack->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
         menuhangman->setTitle(QString());
     } // retranslateUi
 

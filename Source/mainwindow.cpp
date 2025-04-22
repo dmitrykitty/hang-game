@@ -5,6 +5,7 @@
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+    ui->buttonBack->setVisible(false);
 
     ui->stackedWidget->setCurrentIndex(PageMenu);
 
@@ -13,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(ui->buttonSettings,   &QPushButton::clicked, this, &MainWindow::settingsClicked);
     connect(ui->buttonStatistics, &QPushButton::clicked, this, &MainWindow::statisticsClicked);
     connect(ui->buttonExit,       &QPushButton::clicked, this, &MainWindow::exitClicked);
+
+    connect(ui->buttonBack, &QPushButton::clicked, this, &MainWindow::backClicked);
+
 
 
 
@@ -59,6 +63,7 @@ void MainWindow::difficultyClicked() {
 }
 
 void MainWindow::settingsClicked(){
+    ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageSettings);
 }
 
@@ -76,8 +81,16 @@ void MainWindow::exitClicked() {
     this->show();
 }
 
+void MainWindow::backClicked()
+{
+    ui->stackedWidget->setCurrentIndex(PageMenu);
+    ui->buttonBack->setVisible(false);
+}
+
 void MainWindow::statisticsClicked() {
+    ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageStatistisc);
+
 }
 
 
