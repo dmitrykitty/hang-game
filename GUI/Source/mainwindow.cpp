@@ -2,8 +2,10 @@
 #include "ui_mainwindow.h"
 #include "windows/difficultydialog.h"
 #include <QMessageBox>
+#include <QPushButton>
 
-MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow) {
+
+MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWindow), game(QStringLiteral("HANGMAN")) {
     ui->setupUi(this);
     ui->buttonBack->setVisible(false);
 
@@ -11,20 +13,18 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 
     connect(ui->buttonStart, &QPushButton::clicked, this, &MainWindow::startGameClicked);
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
-    connect(ui->buttonSettings,   &QPushButton::clicked, this, &MainWindow::settingsClicked);
+    connect(ui->buttonSettings, &QPushButton::clicked, this, &MainWindow::settingsClicked);
     connect(ui->buttonStatistics, &QPushButton::clicked, this, &MainWindow::statisticsClicked);
-    connect(ui->buttonExit,       &QPushButton::clicked, this, &MainWindow::exitClicked);
+    connect(ui->buttonExit, &QPushButton::clicked, this, &MainWindow::exitClicked);
 
     connect(ui->buttonBack, &QPushButton::clicked, this, &MainWindow::backClicked);
 
 
-
-
-    auto buttons = ui->keyboardWidget->findChildren<QPushButton*>();
-    for (auto *btn : buttons) {
+    auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
+    for (auto* btn: buttons) {
         // Получаем букву из надписи на кнопке
         QChar ch = btn->text().at(0).toUpper();
-        connect(btn, &QPushButton::clicked, this, [this, ch, btn](){
+        connect(btn, &QPushButton::clicked, this, [this, ch, btn]() {
             onLetterClicked(ch);
             btn->setEnabled(false);
         });
@@ -35,11 +35,9 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::startGameClicked(){
+void MainWindow::startGameClicked() {
     ui->stackedWidget->setCurrentIndex(PageGame);
 }
-
-
 
 
 void MainWindow::difficultyClicked() {
@@ -62,7 +60,7 @@ void MainWindow::difficultyClicked() {
     }
 }
 
-void MainWindow::settingsClicked(){
+void MainWindow::settingsClicked() {
     ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageSettings);
 }
@@ -81,8 +79,7 @@ void MainWindow::exitClicked() {
     this->show();
 }
 
-void MainWindow::backClicked()
-{
+void MainWindow::backClicked() {
     ui->stackedWidget->setCurrentIndex(PageMenu);
     ui->buttonBack->setVisible(false);
 }
@@ -90,13 +87,10 @@ void MainWindow::backClicked()
 void MainWindow::statisticsClicked() {
     ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageStatistisc);
-
 }
 
 
 void MainWindow::onLetterClicked(QChar ch) {
-    //sprawdzenie wartosci
-    // if (f(ch)){...}
-    // else {...}
-    // end
+    if (game.guess(ch))
+        game.updateDisplay(ch);
 }

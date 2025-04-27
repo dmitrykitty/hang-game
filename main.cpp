@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "mainwindow.h"
+#include "GUI/Source/mainwindow.h"
 #include <QWidget>
 
 
@@ -19,5 +19,5 @@ int main(int argc, char *argv[]) {
 
 
 
-    return app.exec();  ;
+    return app.exec();
 }

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "GameLogic/Game.h"
 
 namespace Ui {
 class MainWindow;
@@ -13,7 +14,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() override;
 
 private slots:
 
@@ -38,6 +39,7 @@ private:
     };
 
     Ui::MainWindow *ui;
+    Game game;
 };
 
 #endif // MAINWINDOW_H

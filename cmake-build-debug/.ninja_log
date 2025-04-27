@@ -1,11 +1,14 @@
 # ninja log v6
-27	314	7670255111750532	HangManQT_autogen/timestamp	fb3b88bbe8da4d9
-27	314	7670255111750532	HangManQT_autogen/mocs_compilation.cpp	fb3b88bbe8da4d9
-27	314	7670255111750532	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/timestamp	fb3b88bbe8da4d9
-5032	11102	7670248554255699	CMakeFiles/HangManQT.dir/Source/main.cpp.obj	cfe6aa8049d8c1a1
-27	314	7670255111750532	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/mocs_compilation.cpp	fb3b88bbe8da4d9
-5023	11159	7670248554165728	CMakeFiles/HangManQT.dir/HangManQT_autogen/mocs_compilation.cpp.obj	ea60737d215261d2
-7427	7918	7670255185743719	HangManQT.exe	2cc715818ed5bf6c
+19	5123	7674097142877297	HangManQT_autogen/timestamp	fb3b88bbe8da4d9
+19	5123	7674097142877297	HangManQT_autogen/mocs_compilation.cpp	fb3b88bbe8da4d9
+19	5123	7674097142877297	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/timestamp	fb3b88bbe8da4d9
+336	7606	7670306491769242	CMakeFiles/HangManQT.dir/Source/main.cpp.obj	cfe6aa8049d8c1a1
+19	5123	7674097142877297	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/mocs_compilation.cpp	fb3b88bbe8da4d9
+5124	10519	7674097143804997	CMakeFiles/HangManQT.dir/HangManQT_autogen/mocs_compilation.cpp.obj	ea60737d215261d2
+5128	10508	7674097143845119	CMakeFiles/HangManQT.dir/main.cpp.obj	455a744263dc94d9
+10951	11792	7674097202077148	HangManQT.exe	bd7b1090c9c4ea5c
 315	7426	7670255114637417	CMakeFiles/HangManQT.dir/Source/mainwindow.cpp.obj	c66c0f3172ebf63d
 501	11229	7669701845260956	CMakeFiles/HangManQT.dir/dialog.cpp.obj	c17ca4cb52cf2b2a
 451	7492	7669830526789070	CMakeFiles/HangManQT.dir/Source/windows/difficultydialog.cpp.obj	684adb3d30960c1b
+5137	10580	7674097143934509	CMakeFiles/HangManQT.dir/GUI/Source/windows/difficultydialog.cpp.obj	e58069cf385dcf9f
+5132	10951	7674097143880247	CMakeFiles/HangManQT.dir/GUI/Source/mainwindow.cpp.obj	382344e3a382f32c

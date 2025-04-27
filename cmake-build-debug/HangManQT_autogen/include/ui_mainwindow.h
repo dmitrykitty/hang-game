@@ -89,7 +89,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(826, 683);
+        MainWindow->resize(826, 690);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -472,7 +472,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 826, 21));
+        menubar->setGeometry(QRect(0, 0, 826, 25));
         menuhangman = new QMenu(menubar);
         menuhangman->setObjectName("menuhangman");
         MainWindow->setMenuBar(menubar);

@@ -18,16 +18,18 @@ find_package(Qt6 REQUIRED COMPONENTS
         Sql
         Multimedia
 )
-set(CMAKE_AUTOUIC_SEARCH_PATHS "${CMAKE_SOURCE_DIR}/Forms")
+set(CMAKE_AUTOUIC_SEARCH_PATHS "${CMAKE_SOURCE_DIR}/GUI/Forms")
 
 add_executable(${PROJECT_NAME}
-        Source/main.cpp
-        Source/mainwindow.cpp
-        Forms/mainwindow.ui
-        Source/mainwindow.h
-        Source/windows/difficultydialog.h
-        Source/windows/difficultydialog.cpp
-        Forms/difficultydialog.ui
+        main.cpp
+        GUI/Source/mainwindow.cpp
+        GUI/Forms/mainwindow.ui
+        GUI/Source/mainwindow.h
+        GUI/Source/windows/difficultydialog.h
+        GUI/Source/windows/difficultydialog.cpp
+        GUI/Forms/difficultydialog.ui
+        GameLogic/Game.h
+        GameLogic/Game.cpp
 
 
 )

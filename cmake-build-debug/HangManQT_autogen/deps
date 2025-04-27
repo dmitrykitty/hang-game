@@ -718,17 +718,17 @@ HangManQT_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
 	D:/study/AGH/C_plus_projects/HangManQT/CMakeLists.txt \
-	D:/study/AGH/C_plus_projects/HangManQT/Source/main.cpp \
-	D:/study/AGH/C_plus_projects/HangManQT/Source/mainwindow.cpp \
-	D:/study/AGH/C_plus_projects/HangManQT/Source/mainwindow.h \
-	D:/study/AGH/C_plus_projects/HangManQT/Source/windows/difficultydialog.cpp \
-	D:/study/AGH/C_plus_projects/HangManQT/Source/windows/difficultydialog.h \
+	D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/mainwindow.cpp \
+	D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/mainwindow.h \
+	D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/windows/difficultydialog.cpp \
+	D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/windows/difficultydialog.h \
 	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/.qtc/package-manager/auto-setup.cmake \
 	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/3.30.5/CMakeCCompiler.cmake \
 	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
 	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/moc_predefs.h \
-	D:/study/AGH/C_plus_projects/HangManQT/Forms/difficultydialog.ui \
-	D:/study/AGH/C_plus_projects/HangManQT/Forms/mainwindow.ui \
+	D:/study/AGH/C_plus_projects/HangManQT/main.cpp \
+	D:/study/AGH/C_plus_projects/HangManQT/GUI/Forms/difficultydialog.ui \
+	D:/study/AGH/C_plus_projects/HangManQT/GUI/Forms/mainwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe
