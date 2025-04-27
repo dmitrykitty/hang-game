@@ -1,8 +1,5 @@
-//
-// Created by Lenovo on 27/04/2025.
-//
-
 #include "Game.h"
+
 
 bool Game::guess(QChar letter) {
     if (secretWord.contains(letter))
@@ -18,4 +15,13 @@ void Game::updateDisplay(QChar letter) {
         newDisplay.append(letter == secretWord.at(i) ? letter : currentDisplay.at(i));
     }
     currentDisplay = std::move(newDisplay);
+}
+
+
+bool Game::isLost() const {
+    return errorCount >= ERRORMAX;
+}
+
+bool Game::isWon() const {
+    return !currentDisplay.contains('_');
 }

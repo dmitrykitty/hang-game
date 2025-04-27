@@ -29,8 +29,8 @@ public:
     void updateDisplay(QChar letter);
 
     //GameResult
-    bool isWon() const;
-    bool isLost() const;
+    [[nodiscard]] bool isWon() const;
+    [[nodiscard]] bool isLost() const;
 };
 
 

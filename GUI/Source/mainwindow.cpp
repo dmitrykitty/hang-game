@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
-        // Получаем букву из надписи на кнопке
+        // dostajemy char z PushButton
         QChar ch = btn->text().at(0).toUpper();
         connect(btn, &QPushButton::clicked, this, [this, ch, btn]() {
             onLetterClicked(ch);
