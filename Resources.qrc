@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>GUI/Resources/img/mainWindowImg.png</file>
+        <file>GUI/Resources/img/mainWindowPNGImage.png</file>
+        <file>GUI/Resources/img/GameImg0.png</file>
+        <file>GUI/Resources/img/GameImg1.png</file>
+        <file>GUI/Resources/img/GameImg2.png</file>
+        <file>GUI/Resources/img/GameImg3.png</file>
+        <file>GUI/Resources/img/GameImg4.png</file>
+        <file>GUI/Resources/img/GameImg5.png</file>
+        <file>GUI/Resources/img/GameLoseImg.png</file>
+        <file>GUI/Resources/img/GameWonImg.png</file>
+    </qresource>
+</RCC>

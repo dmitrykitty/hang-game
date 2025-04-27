@@ -24,6 +24,9 @@ public:
     [[nodiscard]] int errors() const { return errorCount; }
     QString& getCurrentDisplay() { return currentDisplay; }
 
+    //Setters
+    void setSecretWord(QString word);
+
     //Update the Game
     [[nodiscard]] bool guess(QChar letter);
     void updateDisplay(QChar letter);

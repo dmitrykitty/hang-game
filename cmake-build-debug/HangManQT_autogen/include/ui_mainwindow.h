@@ -33,21 +33,18 @@ public:
     QGridLayout *gridLayout;
     QStackedWidget *stackedWidget;
     QWidget *pageMenu;
-    QGridLayout *gridLayout_2;
-    QVBoxLayout *verticalLayout_3;
-    QLabel *label_4;
+    QLabel *pictureMain;
     QWidget *buttonsWidget;
-    QVBoxLayout *verticalLayout;
+    QWidget *widget;
     QVBoxLayout *verticalLayout_2;
     QPushButton *buttonStart;
     QPushButton *buttonSettings;
-    QPushButton *buttonDifficulty;
     QPushButton *buttonStatistics;
     QPushButton *buttonExit;
     QWidget *pageGame;
     QVBoxLayout *verticalLayout_7;
+    QLabel *pictureGame;
     QSpacerItem *verticalSpacer;
-    QSpacerItem *verticalSpacer_2;
     QWidget *keyboardWidget;
     QGridLayout *gridLayout_3;
     QPushButton *buttonO;
@@ -80,6 +77,7 @@ public:
     QLabel *label_2;
     QWidget *pageSettings;
     QLabel *label_3;
+    QPushButton *buttonDifficulty;
     QPushButton *buttonBack;
     QMenuBar *menubar;
     QMenu *menuhangman;
@@ -89,7 +87,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(826, 690);
+        MainWindow->resize(826, 864);
         QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -102,9 +100,10 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
         centralwidget->setSizePolicy(sizePolicy1);
-        centralwidget->setMinimumSize(QSize(480, 640));
+        centralwidget->setMinimumSize(QSize(480, 720));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
+        gridLayout->setSizeConstraint(QLayout::SizeConstraint::SetNoConstraint);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
         pageMenu = new QWidget();
@@ -112,42 +111,39 @@ public:
         pageMenu->setEnabled(true);
         sizePolicy1.setHeightForWidth(pageMenu->sizePolicy().hasHeightForWidth());
         pageMenu->setSizePolicy(sizePolicy1);
-        gridLayout_2 = new QGridLayout(pageMenu);
-        gridLayout_2->setObjectName("gridLayout_2");
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setSpacing(0);
-        verticalLayout_3->setObjectName("verticalLayout_3");
-        label_4 = new QLabel(pageMenu);
-        label_4->setObjectName("label_4");
-        QSizePolicy sizePolicy2(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
+        pictureMain = new QLabel(pageMenu);
+        pictureMain->setObjectName("pictureMain");
+        pictureMain->setEnabled(true);
+        pictureMain->setGeometry(QRect(180, -40, 421, 401));
+        QSizePolicy sizePolicy2(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Expanding);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(2);
-        sizePolicy2.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
-        label_4->setSizePolicy(sizePolicy2);
+        sizePolicy2.setHeightForWidth(pictureMain->sizePolicy().hasHeightForWidth());
+        pictureMain->setSizePolicy(sizePolicy2);
         QFont font;
         font.setFamilies({QString::fromUtf8("Comic Sans MS")});
-        font.setPointSize(28);
+        font.setPointSize(48);
         font.setBold(true);
-        label_4->setFont(font);
-        label_4->setToolTipDuration(-1);
-
-        verticalLayout_3->addWidget(label_4, 0, Qt::AlignmentFlag::AlignHCenter);
-
+        pictureMain->setFont(font);
+        pictureMain->setToolTipDuration(-1);
         buttonsWidget = new QWidget(pageMenu);
         buttonsWidget->setObjectName("buttonsWidget");
+        buttonsWidget->setGeometry(QRect(0, 180, 781, 571));
         sizePolicy1.setHeightForWidth(buttonsWidget->sizePolicy().hasHeightForWidth());
         buttonsWidget->setSizePolicy(sizePolicy1);
-        verticalLayout = new QVBoxLayout(buttonsWidget);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout_2 = new QVBoxLayout();
+        widget = new QWidget(buttonsWidget);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(50, 190, 671, 351));
+        verticalLayout_2 = new QVBoxLayout(widget);
         verticalLayout_2->setSpacing(15);
         verticalLayout_2->setObjectName("verticalLayout_2");
-        verticalLayout_2->setContentsMargins(50, -1, 50, -1);
-        buttonStart = new QPushButton(buttonsWidget);
+        verticalLayout_2->setContentsMargins(200, 0, 200, 0);
+        buttonStart = new QPushButton(widget);
         buttonStart->setObjectName("buttonStart");
         buttonStart->setEnabled(true);
         sizePolicy1.setHeightForWidth(buttonStart->sizePolicy().hasHeightForWidth());
         buttonStart->setSizePolicy(sizePolicy1);
+        buttonStart->setMinimumSize(QSize(240, 0));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Comic Sans MS")});
         font1.setPointSize(16);
@@ -156,65 +152,51 @@ public:
 
         verticalLayout_2->addWidget(buttonStart);
 
-        buttonSettings = new QPushButton(buttonsWidget);
+        buttonSettings = new QPushButton(widget);
         buttonSettings->setObjectName("buttonSettings");
         buttonSettings->setEnabled(true);
         sizePolicy1.setHeightForWidth(buttonSettings->sizePolicy().hasHeightForWidth());
         buttonSettings->setSizePolicy(sizePolicy1);
+        buttonSettings->setMinimumSize(QSize(240, 0));
         buttonSettings->setFont(font1);
 
         verticalLayout_2->addWidget(buttonSettings);
 
-        buttonDifficulty = new QPushButton(buttonsWidget);
-        buttonDifficulty->setObjectName("buttonDifficulty");
-        buttonDifficulty->setEnabled(true);
-        sizePolicy1.setHeightForWidth(buttonDifficulty->sizePolicy().hasHeightForWidth());
-        buttonDifficulty->setSizePolicy(sizePolicy1);
-        buttonDifficulty->setFont(font1);
-
-        verticalLayout_2->addWidget(buttonDifficulty);
-
-        buttonStatistics = new QPushButton(buttonsWidget);
+        buttonStatistics = new QPushButton(widget);
         buttonStatistics->setObjectName("buttonStatistics");
         buttonStatistics->setEnabled(true);
         sizePolicy1.setHeightForWidth(buttonStatistics->sizePolicy().hasHeightForWidth());
         buttonStatistics->setSizePolicy(sizePolicy1);
+        buttonStatistics->setMinimumSize(QSize(240, 0));
         buttonStatistics->setFont(font1);
 
         verticalLayout_2->addWidget(buttonStatistics);
 
-        buttonExit = new QPushButton(buttonsWidget);
+        buttonExit = new QPushButton(widget);
         buttonExit->setObjectName("buttonExit");
         buttonExit->setEnabled(true);
         sizePolicy1.setHeightForWidth(buttonExit->sizePolicy().hasHeightForWidth());
         buttonExit->setSizePolicy(sizePolicy1);
+        buttonExit->setMinimumSize(QSize(240, 0));
         buttonExit->setFont(font1);
         buttonExit->setCursor(QCursor(Qt::CursorShape::ArrowCursor));
 
         verticalLayout_2->addWidget(buttonExit);
-
-
-        verticalLayout->addLayout(verticalLayout_2);
-
-
-        verticalLayout_3->addWidget(buttonsWidget);
-
-        verticalLayout_3->setStretch(1, 5);
-
-        gridLayout_2->addLayout(verticalLayout_3, 2, 0, 1, 1);
 
         stackedWidget->addWidget(pageMenu);
         pageGame = new QWidget();
         pageGame->setObjectName("pageGame");
         verticalLayout_7 = new QVBoxLayout(pageGame);
         verticalLayout_7->setObjectName("verticalLayout_7");
+        pictureGame = new QLabel(pageGame);
+        pictureGame->setObjectName("pictureGame");
+        pictureGame->setMaximumSize(QSize(484, 484));
+
+        verticalLayout_7->addWidget(pictureGame);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout_7->addItem(verticalSpacer);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        verticalLayout_7->addItem(verticalSpacer_2);
 
         keyboardWidget = new QWidget(pageGame);
         keyboardWidget->setObjectName("keyboardWidget");
@@ -228,7 +210,11 @@ public:
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(buttonO->sizePolicy().hasHeightForWidth());
         buttonO->setSizePolicy(sizePolicy3);
-        buttonO->setMinimumSize(QSize(20, 20));
+        buttonO->setMinimumSize(QSize(15, 15));
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("Comic Sans MS")});
+        font2.setPointSize(16);
+        buttonO->setFont(font2);
 
         gridLayout_3->addWidget(buttonO, 4, 5, 1, 1);
 
@@ -236,7 +222,8 @@ public:
         buttonW->setObjectName("buttonW");
         sizePolicy3.setHeightForWidth(buttonW->sizePolicy().hasHeightForWidth());
         buttonW->setSizePolicy(sizePolicy3);
-        buttonW->setMinimumSize(QSize(20, 20));
+        buttonW->setMinimumSize(QSize(15, 15));
+        buttonW->setFont(font2);
 
         gridLayout_3->addWidget(buttonW, 5, 4, 1, 1);
 
@@ -244,7 +231,8 @@ public:
         buttonF->setObjectName("buttonF");
         sizePolicy3.setHeightForWidth(buttonF->sizePolicy().hasHeightForWidth());
         buttonF->setSizePolicy(sizePolicy3);
-        buttonF->setMinimumSize(QSize(20, 20));
+        buttonF->setMinimumSize(QSize(15, 15));
+        buttonF->setFont(font2);
 
         gridLayout_3->addWidget(buttonF, 2, 5, 1, 1);
 
@@ -252,7 +240,8 @@ public:
         buttonN->setObjectName("buttonN");
         sizePolicy3.setHeightForWidth(buttonN->sizePolicy().hasHeightForWidth());
         buttonN->setSizePolicy(sizePolicy3);
-        buttonN->setMinimumSize(QSize(20, 20));
+        buttonN->setMinimumSize(QSize(15, 15));
+        buttonN->setFont(font2);
 
         gridLayout_3->addWidget(buttonN, 4, 4, 1, 1);
 
@@ -260,7 +249,8 @@ public:
         buttonH->setObjectName("buttonH");
         sizePolicy3.setHeightForWidth(buttonH->sizePolicy().hasHeightForWidth());
         buttonH->setSizePolicy(sizePolicy3);
-        buttonH->setMinimumSize(QSize(20, 20));
+        buttonH->setMinimumSize(QSize(15, 15));
+        buttonH->setFont(font2);
 
         gridLayout_3->addWidget(buttonH, 2, 7, 1, 1);
 
@@ -268,7 +258,8 @@ public:
         buttonM->setObjectName("buttonM");
         sizePolicy3.setHeightForWidth(buttonM->sizePolicy().hasHeightForWidth());
         buttonM->setSizePolicy(sizePolicy3);
-        buttonM->setMinimumSize(QSize(20, 20));
+        buttonM->setMinimumSize(QSize(15, 15));
+        buttonM->setFont(font2);
 
         gridLayout_3->addWidget(buttonM, 4, 3, 1, 1);
 
@@ -276,7 +267,8 @@ public:
         buttonC->setObjectName("buttonC");
         sizePolicy3.setHeightForWidth(buttonC->sizePolicy().hasHeightForWidth());
         buttonC->setSizePolicy(sizePolicy3);
-        buttonC->setMinimumSize(QSize(20, 20));
+        buttonC->setMinimumSize(QSize(15, 15));
+        buttonC->setFont(font2);
 
         gridLayout_3->addWidget(buttonC, 2, 2, 1, 1);
 
@@ -284,7 +276,8 @@ public:
         buttonI->setObjectName("buttonI");
         sizePolicy3.setHeightForWidth(buttonI->sizePolicy().hasHeightForWidth());
         buttonI->setSizePolicy(sizePolicy3);
-        buttonI->setMinimumSize(QSize(20, 20));
+        buttonI->setMinimumSize(QSize(15, 15));
+        buttonI->setFont(font2);
 
         gridLayout_3->addWidget(buttonI, 2, 8, 1, 1);
 
@@ -292,7 +285,8 @@ public:
         buttonJ->setObjectName("buttonJ");
         sizePolicy3.setHeightForWidth(buttonJ->sizePolicy().hasHeightForWidth());
         buttonJ->setSizePolicy(sizePolicy3);
-        buttonJ->setMinimumSize(QSize(20, 20));
+        buttonJ->setMinimumSize(QSize(15, 15));
+        buttonJ->setFont(font2);
 
         gridLayout_3->addWidget(buttonJ, 4, 0, 1, 1);
 
@@ -300,7 +294,8 @@ public:
         buttonL->setObjectName("buttonL");
         sizePolicy3.setHeightForWidth(buttonL->sizePolicy().hasHeightForWidth());
         buttonL->setSizePolicy(sizePolicy3);
-        buttonL->setMinimumSize(QSize(20, 20));
+        buttonL->setMinimumSize(QSize(15, 15));
+        buttonL->setFont(font2);
 
         gridLayout_3->addWidget(buttonL, 4, 2, 1, 1);
 
@@ -308,7 +303,8 @@ public:
         buttonE->setObjectName("buttonE");
         sizePolicy3.setHeightForWidth(buttonE->sizePolicy().hasHeightForWidth());
         buttonE->setSizePolicy(sizePolicy3);
-        buttonE->setMinimumSize(QSize(20, 20));
+        buttonE->setMinimumSize(QSize(15, 15));
+        buttonE->setFont(font2);
 
         gridLayout_3->addWidget(buttonE, 2, 4, 1, 1);
 
@@ -316,7 +312,8 @@ public:
         buttonU->setObjectName("buttonU");
         sizePolicy3.setHeightForWidth(buttonU->sizePolicy().hasHeightForWidth());
         buttonU->setSizePolicy(sizePolicy3);
-        buttonU->setMinimumSize(QSize(20, 20));
+        buttonU->setMinimumSize(QSize(15, 15));
+        buttonU->setFont(font2);
 
         gridLayout_3->addWidget(buttonU, 5, 2, 1, 1);
 
@@ -324,7 +321,8 @@ public:
         buttonB->setObjectName("buttonB");
         sizePolicy3.setHeightForWidth(buttonB->sizePolicy().hasHeightForWidth());
         buttonB->setSizePolicy(sizePolicy3);
-        buttonB->setMinimumSize(QSize(20, 20));
+        buttonB->setMinimumSize(QSize(15, 15));
+        buttonB->setFont(font2);
 
         gridLayout_3->addWidget(buttonB, 2, 1, 1, 1);
 
@@ -332,7 +330,8 @@ public:
         buttonK->setObjectName("buttonK");
         sizePolicy3.setHeightForWidth(buttonK->sizePolicy().hasHeightForWidth());
         buttonK->setSizePolicy(sizePolicy3);
-        buttonK->setMinimumSize(QSize(20, 20));
+        buttonK->setMinimumSize(QSize(15, 15));
+        buttonK->setFont(font2);
 
         gridLayout_3->addWidget(buttonK, 4, 1, 1, 1);
 
@@ -340,7 +339,8 @@ public:
         buttonQ->setObjectName("buttonQ");
         sizePolicy3.setHeightForWidth(buttonQ->sizePolicy().hasHeightForWidth());
         buttonQ->setSizePolicy(sizePolicy3);
-        buttonQ->setMinimumSize(QSize(20, 20));
+        buttonQ->setMinimumSize(QSize(15, 15));
+        buttonQ->setFont(font2);
 
         gridLayout_3->addWidget(buttonQ, 4, 7, 1, 1);
 
@@ -348,7 +348,8 @@ public:
         buttonS->setObjectName("buttonS");
         sizePolicy3.setHeightForWidth(buttonS->sizePolicy().hasHeightForWidth());
         buttonS->setSizePolicy(sizePolicy3);
-        buttonS->setMinimumSize(QSize(20, 20));
+        buttonS->setMinimumSize(QSize(15, 15));
+        buttonS->setFont(font2);
 
         gridLayout_3->addWidget(buttonS, 5, 0, 1, 1);
 
@@ -356,7 +357,8 @@ public:
         buttonT->setObjectName("buttonT");
         sizePolicy3.setHeightForWidth(buttonT->sizePolicy().hasHeightForWidth());
         buttonT->setSizePolicy(sizePolicy3);
-        buttonT->setMinimumSize(QSize(20, 20));
+        buttonT->setMinimumSize(QSize(15, 15));
+        buttonT->setFont(font2);
 
         gridLayout_3->addWidget(buttonT, 5, 1, 1, 1);
 
@@ -364,7 +366,8 @@ public:
         buttonG->setObjectName("buttonG");
         sizePolicy3.setHeightForWidth(buttonG->sizePolicy().hasHeightForWidth());
         buttonG->setSizePolicy(sizePolicy3);
-        buttonG->setMinimumSize(QSize(20, 20));
+        buttonG->setMinimumSize(QSize(15, 15));
+        buttonG->setFont(font2);
 
         gridLayout_3->addWidget(buttonG, 2, 6, 1, 1);
 
@@ -372,7 +375,8 @@ public:
         buttonP->setObjectName("buttonP");
         sizePolicy3.setHeightForWidth(buttonP->sizePolicy().hasHeightForWidth());
         buttonP->setSizePolicy(sizePolicy3);
-        buttonP->setMinimumSize(QSize(20, 20));
+        buttonP->setMinimumSize(QSize(15, 15));
+        buttonP->setFont(font2);
 
         gridLayout_3->addWidget(buttonP, 4, 6, 1, 1);
 
@@ -380,7 +384,8 @@ public:
         buttonX->setObjectName("buttonX");
         sizePolicy3.setHeightForWidth(buttonX->sizePolicy().hasHeightForWidth());
         buttonX->setSizePolicy(sizePolicy3);
-        buttonX->setMinimumSize(QSize(20, 20));
+        buttonX->setMinimumSize(QSize(15, 15));
+        buttonX->setFont(font2);
 
         gridLayout_3->addWidget(buttonX, 5, 5, 1, 1);
 
@@ -388,7 +393,8 @@ public:
         buttonR->setObjectName("buttonR");
         sizePolicy3.setHeightForWidth(buttonR->sizePolicy().hasHeightForWidth());
         buttonR->setSizePolicy(sizePolicy3);
-        buttonR->setMinimumSize(QSize(20, 20));
+        buttonR->setMinimumSize(QSize(15, 15));
+        buttonR->setFont(font2);
 
         gridLayout_3->addWidget(buttonR, 4, 8, 1, 1);
 
@@ -396,7 +402,8 @@ public:
         buttonV->setObjectName("buttonV");
         sizePolicy3.setHeightForWidth(buttonV->sizePolicy().hasHeightForWidth());
         buttonV->setSizePolicy(sizePolicy3);
-        buttonV->setMinimumSize(QSize(20, 20));
+        buttonV->setMinimumSize(QSize(15, 15));
+        buttonV->setFont(font2);
 
         gridLayout_3->addWidget(buttonV, 5, 3, 1, 1);
 
@@ -404,7 +411,8 @@ public:
         buttonZ->setObjectName("buttonZ");
         sizePolicy3.setHeightForWidth(buttonZ->sizePolicy().hasHeightForWidth());
         buttonZ->setSizePolicy(sizePolicy3);
-        buttonZ->setMinimumSize(QSize(20, 20));
+        buttonZ->setMinimumSize(QSize(15, 15));
+        buttonZ->setFont(font2);
 
         gridLayout_3->addWidget(buttonZ, 5, 7, 1, 1);
 
@@ -412,7 +420,8 @@ public:
         buttonD->setObjectName("buttonD");
         sizePolicy3.setHeightForWidth(buttonD->sizePolicy().hasHeightForWidth());
         buttonD->setSizePolicy(sizePolicy3);
-        buttonD->setMinimumSize(QSize(20, 20));
+        buttonD->setMinimumSize(QSize(15, 15));
+        buttonD->setFont(font2);
 
         gridLayout_3->addWidget(buttonD, 2, 3, 1, 1);
 
@@ -420,7 +429,8 @@ public:
         buttonY->setObjectName("buttonY");
         sizePolicy3.setHeightForWidth(buttonY->sizePolicy().hasHeightForWidth());
         buttonY->setSizePolicy(sizePolicy3);
-        buttonY->setMinimumSize(QSize(20, 20));
+        buttonY->setMinimumSize(QSize(15, 15));
+        buttonY->setFont(font2);
 
         gridLayout_3->addWidget(buttonY, 5, 6, 1, 1);
 
@@ -428,7 +438,8 @@ public:
         buttonA->setObjectName("buttonA");
         sizePolicy3.setHeightForWidth(buttonA->sizePolicy().hasHeightForWidth());
         buttonA->setSizePolicy(sizePolicy3);
-        buttonA->setMinimumSize(QSize(20, 20));
+        buttonA->setMinimumSize(QSize(15, 15));
+        buttonA->setFont(font2);
 
         gridLayout_3->addWidget(buttonA, 2, 0, 1, 1);
 
@@ -441,6 +452,8 @@ public:
 
         verticalLayout_7->addWidget(keyboardWidget);
 
+        verticalLayout_7->setStretch(0, 2);
+        verticalLayout_7->setStretch(2, 1);
         stackedWidget->addWidget(pageGame);
         pageStatistics = new QWidget();
         pageStatistics->setObjectName("pageStatistics");
@@ -453,9 +466,16 @@ public:
         label_3 = new QLabel(pageSettings);
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(140, 130, 63, 20));
+        buttonDifficulty = new QPushButton(pageSettings);
+        buttonDifficulty->setObjectName("buttonDifficulty");
+        buttonDifficulty->setEnabled(true);
+        buttonDifficulty->setGeometry(QRect(60, 300, 658, 62));
+        sizePolicy1.setHeightForWidth(buttonDifficulty->sizePolicy().hasHeightForWidth());
+        buttonDifficulty->setSizePolicy(sizePolicy1);
+        buttonDifficulty->setFont(font1);
         stackedWidget->addWidget(pageSettings);
 
-        gridLayout->addWidget(stackedWidget, 1, 0, 1, 1);
+        gridLayout->addWidget(stackedWidget, 1, 0, 1, 1, Qt::AlignmentFlag::AlignHCenter);
 
         buttonBack = new QPushButton(centralwidget);
         buttonBack->setObjectName("buttonBack");
@@ -472,7 +492,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 826, 25));
+        menubar->setGeometry(QRect(0, 0, 826, 21));
         menuhangman = new QMenu(menubar);
         menuhangman->setObjectName("menuhangman");
         MainWindow->setMenuBar(menubar);
@@ -494,12 +514,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label_4->setText(QCoreApplication::translate("MainWindow", "THE HANGMAN", nullptr));
+        pictureMain->setText(QString());
         buttonStart->setText(QCoreApplication::translate("MainWindow", "START GAME", nullptr));
         buttonSettings->setText(QCoreApplication::translate("MainWindow", "SETTINGS", nullptr));
-        buttonDifficulty->setText(QCoreApplication::translate("MainWindow", "DIFFICULTY", nullptr));
         buttonStatistics->setText(QCoreApplication::translate("MainWindow", "STATISTICS", nullptr));
         buttonExit->setText(QCoreApplication::translate("MainWindow", "EXIT", nullptr));
+        pictureGame->setText(QString());
         buttonO->setText(QCoreApplication::translate("MainWindow", "O", nullptr));
         buttonW->setText(QCoreApplication::translate("MainWindow", "W", nullptr));
         buttonF->setText(QCoreApplication::translate("MainWindow", "F", nullptr));
@@ -526,8 +546,9 @@ public:
         buttonD->setText(QCoreApplication::translate("MainWindow", "D", nullptr));
         buttonY->setText(QCoreApplication::translate("MainWindow", "Y", nullptr));
         buttonA->setText(QCoreApplication::translate("MainWindow", "A", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "SETTINGS", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "STATS", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "stats", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "settings", nullptr));
+        buttonDifficulty->setText(QCoreApplication::translate("MainWindow", "DIFFICULTY", nullptr));
         buttonBack->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
         menuhangman->setTitle(QString());
     } // retranslateUi

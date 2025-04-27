@@ -1,10 +1,15 @@
 #include "Game.h"
 
+void Game::setSecretWord(QString word) {
+    secretWord = std::move(word);
+    QString newDisplay = QString(secretWord.size(), QChar('_'));
+    currentDisplay = std::move(newDisplay);
+}
 
 bool Game::guess(QChar letter) {
     if (secretWord.contains(letter))
         return true;
-    errorCount++;
+    ++errorCount;
     return false;
 }
 
@@ -16,7 +21,6 @@ void Game::updateDisplay(QChar letter) {
     }
     currentDisplay = std::move(newDisplay);
 }
-
 
 bool Game::isLost() const {
     return errorCount >= ERRORMAX;

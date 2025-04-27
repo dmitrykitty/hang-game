@@ -30,6 +30,7 @@ add_executable(${PROJECT_NAME}
         GUI/Forms/difficultydialog.ui
         GameLogic/Game.h
         GameLogic/Game.cpp
+        Resources.qrc
 
 
 )

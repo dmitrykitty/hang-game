@@ -3,6 +3,7 @@
 #include "windows/difficultydialog.h"
 #include <QMessageBox>
 #include <QPushButton>
+#include <QPixmap>
 
 
 MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWindow), game(QStringLiteral("HANGMAN")) {
@@ -10,6 +11,10 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->buttonBack->setVisible(false);
 
     ui->stackedWidget->setCurrentIndex(PageMenu);
+    QPixmap pixMenu(":/img/GUI/Resources/img/mainWindowPNGImage.png");
+    int w = ui->pictureMain->width();
+    int h = ui->pictureMain->height();
+    ui->pictureMain->setPixmap(pixMenu.scaled(w, h, Qt::KeepAspectRatio));
 
     connect(ui->buttonStart, &QPushButton::clicked, this, &MainWindow::startGameClicked);
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
@@ -37,6 +42,10 @@ MainWindow::~MainWindow() {
 
 void MainWindow::startGameClicked() {
     ui->stackedWidget->setCurrentIndex(PageGame);
+    QPixmap pixGame(":/img/GUI/Resources/img/GameImg0.png");
+    int w = ui->pictureGame->width();
+    int h = ui->pictureGame->height();
+    ui->pictureGame->setPixmap(pixGame.scaled(w, h, Qt::KeepAspectRatio));
 }
 
 
@@ -66,6 +75,7 @@ void MainWindow::settingsClicked() {
 }
 
 
+
 void MainWindow::exitClicked() {
     auto reply = QMessageBox::question(
         this,
@@ -91,6 +101,22 @@ void MainWindow::statisticsClicked() {
 
 
 void MainWindow::onLetterClicked(QChar ch) {
-    if (game.guess(ch))
+    if (game.guess(ch)) {
         game.updateDisplay(ch);
+        if (game.isWon()) {
+            int w = ui->pictureGame->width();
+            int h = ui->pictureGame->height();
+            ui->pictureGame->setPixmap(QPixmap(hangmanImages[sz - 1]).scaled(w, h, Qt::KeepAspectRatio));
+        }
+    }
+    else
+        updateGameImage();
+}
+
+
+void MainWindow::updateGameImage() {
+    int errs = qBound(0, game.errors(), int(hangmanImages.size()));
+    int w = ui->pictureGame->width();
+    int h = ui->pictureGame->height();
+    ui->pictureGame->setPixmap(QPixmap(hangmanImages[errs -1]).scaled(w, h, Qt::KeepAspectRatio));
 }
