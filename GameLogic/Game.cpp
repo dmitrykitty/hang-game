@@ -1,9 +1,14 @@
 #include "Game.h"
 
-void Game::setSecretWord(QString word) {
-    secretWord = std::move(word);
-    QString newDisplay = QString(secretWord.size(), QChar('_'));
-    currentDisplay = std::move(newDisplay);
+void Game::setSecretWord(const QString& word) {
+    secretWord = std::move(word.toUpper());
+    QString mainDisplay;
+    for (int i = 0; i < secretWord.size(); i++) {
+        mainDisplay += '_';
+        if (i + 1 < secretWord.size())
+            mainDisplay += ' ';
+    }
+    currentDisplay = std::move(mainDisplay);
 }
 
 bool Game::guess(QChar letter) {
@@ -15,9 +20,14 @@ bool Game::guess(QChar letter) {
 
 void Game::updateDisplay(QChar letter) {
     QString newDisplay;
-    newDisplay.reserve(secretWord.size()); //żeby nie było ciągłej alokacji pamięci
-    for (int i = 0; i < currentDisplay.length(); i++) {
-        newDisplay.append(letter == secretWord.at(i) ? letter : currentDisplay.at(i));
+
+    for (int i = 0; i < secretWord.size(); ++i) {
+        QChar real = secretWord.at(i);
+        // либо открываем букву, либо оставляем _
+        QChar out = (letter == real) ? real : currentDisplay.at(2*i);
+        newDisplay += out;
+        if (i + 1 < secretWord.size())
+            newDisplay += ' ';
     }
     currentDisplay = std::move(newDisplay);
 }

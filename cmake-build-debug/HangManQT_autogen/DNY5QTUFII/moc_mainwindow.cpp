@@ -48,8 +48,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "exitClicked",
         "backClicked",
         "onLetterClicked",
-        "ch",
-        "updateGameImage"
+        "ch"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -69,8 +68,6 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void(QChar)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QChar, 9 },
         }}),
-        // Slot 'updateGameImage'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -101,7 +98,6 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->exitClicked(); break;
         case 5: _t->backClicked(); break;
         case 6: _t->onLetterClicked((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
-        case 7: _t->updateGameImage(); break;
         default: ;
         }
     }
@@ -126,14 +122,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 7;
     }
     return _id;
 }

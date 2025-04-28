@@ -6,24 +6,21 @@
 #include <QPixmap>
 
 
-MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWindow), game(QStringLiteral("HANGMAN")) {
+MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     ui->buttonBack->setVisible(false);
 
     ui->stackedWidget->setCurrentIndex(PageMenu);
+
     QPixmap pixMenu(":/img/GUI/Resources/img/mainWindowPNGImage.png");
-    int w = ui->pictureMain->width();
-    int h = ui->pictureMain->height();
-    ui->pictureMain->setPixmap(pixMenu.scaled(w, h, Qt::KeepAspectRatio));
+    ui->pictureMain->setPixmap(pixMenu.scaled(ui->pictureMain->size(), Qt::KeepAspectRatio));
 
     connect(ui->buttonStart, &QPushButton::clicked, this, &MainWindow::startGameClicked);
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
     connect(ui->buttonSettings, &QPushButton::clicked, this, &MainWindow::settingsClicked);
     connect(ui->buttonStatistics, &QPushButton::clicked, this, &MainWindow::statisticsClicked);
     connect(ui->buttonExit, &QPushButton::clicked, this, &MainWindow::exitClicked);
-
     connect(ui->buttonBack, &QPushButton::clicked, this, &MainWindow::backClicked);
-
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
@@ -42,10 +39,12 @@ MainWindow::~MainWindow() {
 
 void MainWindow::startGameClicked() {
     ui->stackedWidget->setCurrentIndex(PageGame);
-    QPixmap pixGame(":/img/GUI/Resources/img/GameImg0.png");
-    int w = ui->pictureGame->width();
-    int h = ui->pictureGame->height();
-    ui->pictureGame->setPixmap(pixGame.scaled(w, h, Qt::KeepAspectRatio));
+
+    //ustawienie słowa z DB w przyszłości
+    QString word = "HANGMAN";
+    game.setSecretWord(word);
+    updateGameImage();
+    updateGameLabel();
 }
 
 
@@ -75,7 +74,6 @@ void MainWindow::settingsClicked() {
 }
 
 
-
 void MainWindow::exitClicked() {
     auto reply = QMessageBox::question(
         this,
@@ -99,24 +97,48 @@ void MainWindow::statisticsClicked() {
     ui->stackedWidget->setCurrentIndex(PageStatistisc);
 }
 
+void MainWindow::showWonImage() {
+    ui->pictureGame->setPixmap(
+        QPixmap(hangmanImages[sz - 1]).scaled(
+            ui->pictureGame->size(), Qt::KeepAspectRatio
+        )
+    );
+}
+
+void MainWindow::showLoseImage() {
+    ui->pictureGame->setPixmap(
+        QPixmap(hangmanImages[sz - 2]).scaled(
+            ui->pictureGame->size(), Qt::KeepAspectRatio
+        )
+    );
+}
+
 
 void MainWindow::onLetterClicked(QChar ch) {
     if (game.guess(ch)) {
         game.updateDisplay(ch);
-        if (game.isWon()) {
-            int w = ui->pictureGame->width();
-            int h = ui->pictureGame->height();
-            ui->pictureGame->setPixmap(QPixmap(hangmanImages[sz - 1]).scaled(w, h, Qt::KeepAspectRatio));
+        updateGameLabel();
+        if (game.isWon()){
+            ui->keyboardWidget->setEnabled(false);
+            showWonImage();
         }
+    } else {
+        if (game.isLost()){
+            ui->keyboardWidget->setEnabled(false);
+            showLoseImage();
+        }
+        else
+            updateGameImage();
     }
-    else
-        updateGameImage();
 }
 
 
 void MainWindow::updateGameImage() {
     int errs = qBound(0, game.errors(), int(hangmanImages.size()));
-    int w = ui->pictureGame->width();
-    int h = ui->pictureGame->height();
-    ui->pictureGame->setPixmap(QPixmap(hangmanImages[errs -1]).scaled(w, h, Qt::KeepAspectRatio));
+    ui->pictureGame->setPixmap(QPixmap(hangmanImages[errs]).scaled(
+        ui->pictureGame->size(), Qt::KeepAspectRatio));
+}
+
+void MainWindow::updateGameLabel() {
+    ui->labelWordMask->setText(game.getCurrentDisplay());
 }

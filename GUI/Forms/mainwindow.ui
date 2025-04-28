@@ -98,7 +98,7 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -241,7 +241,7 @@
        </widget>
       </widget>
       <widget class="QWidget" name="pageGame">
-       <layout class="QVBoxLayout" name="verticalLayout_7" stretch="2,0,1">
+       <layout class="QVBoxLayout" name="verticalLayout_7" stretch="5,0,1,0,3">
         <item>
          <widget class="QLabel" name="pictureGame">
           <property name="maximumSize">
@@ -252,6 +252,36 @@
           </property>
           <property name="text">
            <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item alignment="Qt::AlignmentFlag::AlignHCenter">
+         <widget class="QLabel" name="labelWordMask">
+          <property name="font">
+           <font>
+            <family>Comic Sans MS</family>
+            <pointsize>48</pointsize>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
           </property>
          </widget>
         </item>

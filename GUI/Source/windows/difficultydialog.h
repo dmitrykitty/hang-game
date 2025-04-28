@@ -12,7 +12,7 @@ class DifficultyDialog : public QDialog {
 
 public:
     explicit DifficultyDialog(QWidget *parent = nullptr);
-    QString selectedDifficulty() const { return choice;}
+    [[nodiscard]] QString selectedDifficulty() const { return choice;}
 
     ~DifficultyDialog() override;
 

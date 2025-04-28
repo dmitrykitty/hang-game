@@ -12,12 +12,13 @@
 class Game {
     static constexpr int ERRORMAX = 7;
 
-    QString secretWord;
-    QString currentDisplay;
+    QString secretWord = "";
+    QString currentDisplay = "";
     int errorCount{};
 
 public:
     //Constructors
+    Game() = default;
     explicit Game(QString word): secretWord(std::move(word)), currentDisplay(secretWord.size(), QChar('_')) {}
 
     //Getters
@@ -25,7 +26,7 @@ public:
     QString& getCurrentDisplay() { return currentDisplay; }
 
     //Setters
-    void setSecretWord(QString word);
+    void setSecretWord(const QString& word);
 
     //Update the Game
     [[nodiscard]] bool guess(QChar letter);
