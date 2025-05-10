@@ -19,7 +19,7 @@ public:
     //Getters
     [[nodiscard]] int errors() const { return errorCount; }
     QString& getCurrentDisplay() { return currentDisplay; }
-    [[nodiscard]] QString getSecretWord() const { return secretWord; }
+    [[nodiscard]] QString getSecretWord() const;
 
     //Setters
     void setSecretWord(const QString& word);

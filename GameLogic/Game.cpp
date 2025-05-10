@@ -36,6 +36,17 @@ bool Game::isLost() const {
     return errorCount >= ERRORMAX;
 }
 
+QString Game::getSecretWord() const {
+    QString secretWordWithSpaces;
+    secretWordWithSpaces.reserve(secretWord.size() * 2 - 1);
+    for (int i = 0; i < secretWord.size(); i++) {
+        secretWordWithSpaces += secretWord.at(i);
+        if (i + 1 < secretWord.size())
+            secretWordWithSpaces += ' ';
+    }
+    return secretWordWithSpaces;
+}
+
 bool Game::isWon() const {
     return !currentDisplay.contains('_');
 }
