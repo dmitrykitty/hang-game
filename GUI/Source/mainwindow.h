@@ -70,6 +70,8 @@ private slots:
 
     void onGameLost(const QString &secretWord);
 
+    void updateAttemptsLabel(int remaining);
+
 private:
     //game GUI update
 

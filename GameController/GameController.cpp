@@ -15,11 +15,13 @@ void GameController::startNewGame(const QString &difficulty) {
 }
 
 void GameController::guessLetter(QChar letter) {
+    const int maxErrors = Game::getMaxError();
     if (game_.guess(letter)) {
         game_.updateDisplay(letter);
         emit displayUpdated(game_.getCurrentDisplay());
     } else {
         emit imageUpdated(game_.errors());
+        emit attemptsLeft(maxErrors - game_.errors());
     }
 
 

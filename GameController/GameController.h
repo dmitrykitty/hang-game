@@ -26,6 +26,8 @@ signals:
 
     void gameLost(const QString& secretWord);
 
+    void attemptsLeft(int remainingAttempts);
+
 private:
     Game game_;
     QString currentDifficulty_;

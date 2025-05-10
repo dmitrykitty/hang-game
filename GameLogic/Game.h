@@ -4,19 +4,21 @@
 #include <utility>
 
 class Game {
-    static constexpr int ERRORMAX = 6;
 
+    static constexpr int ERRORMAX = 6;
     QString secretWord;
     QString currentDisplay;
     int errorCount{};
 
 public:
+
     //Constructors
     Game() = default;
 
     explicit Game(QString word): secretWord(std::move(word)) {}
 
     //Getters
+    static constexpr int getMaxError() { return ERRORMAX; }
     [[nodiscard]] int errors() const { return errorCount; }
     QString& getCurrentDisplay() { return currentDisplay; }
     [[nodiscard]] QString getSecretWord() const;

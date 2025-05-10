@@ -47,6 +47,8 @@ template <> constexpr inline auto GameController::qt_create_metaobjectdata<qt_me
         "gameWon",
         "gameLost",
         "secretWord",
+        "attemptsLeft",
+        "remainingAttempts",
         "startNewGame",
         "difficulty",
         "guessLetter",
@@ -68,13 +70,17 @@ template <> constexpr inline auto GameController::qt_create_metaobjectdata<qt_me
         QtMocHelpers::SignalData<void(const QString &)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 8 },
         }}),
+        // Signal 'attemptsLeft'
+        QtMocHelpers::SignalData<void(int)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 10 },
+        }}),
         // Slot 'startNewGame'
-        QtMocHelpers::SlotData<void(const QString &)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 10 },
+        QtMocHelpers::SlotData<void(const QString &)>(11, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 12 },
         }}),
         // Slot 'guessLetter'
-        QtMocHelpers::SlotData<void(QChar)>(11, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QChar, 12 },
+        QtMocHelpers::SlotData<void(QChar)>(13, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QChar, 14 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -103,8 +109,9 @@ void GameController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 1: _t->imageUpdated((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 2: _t->gameWon(); break;
         case 3: _t->gameLost((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 4: _t->startNewGame((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 5: _t->guessLetter((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
+        case 4: _t->attemptsLeft((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->startNewGame((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->guessLetter((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
         default: ;
         }
     }
@@ -116,6 +123,8 @@ void GameController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         if (QtMocHelpers::indexOfMethod<void (GameController::*)()>(_a, &GameController::gameWon, 2))
             return;
         if (QtMocHelpers::indexOfMethod<void (GameController::*)(const QString & )>(_a, &GameController::gameLost, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (GameController::*)(int )>(_a, &GameController::attemptsLeft, 4))
             return;
     }
 }
@@ -139,14 +148,14 @@ int GameController::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
@@ -173,5 +182,11 @@ void GameController::gameWon()
 void GameController::gameLost(const QString & _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
+}
+
+// SIGNAL 4
+void GameController::attemptsLeft(int _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 4, nullptr, _t1);
 }
 QT_WARNING_POP

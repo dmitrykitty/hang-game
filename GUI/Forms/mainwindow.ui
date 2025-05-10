@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>913</width>
-    <height>864</height>
+    <width>941</width>
+    <height>855</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -245,9 +245,9 @@
         <property name="geometry">
          <rect>
           <x>11</x>
-          <y>11</y>
-          <width>481</width>
-          <height>311</height>
+          <y>51</y>
+          <width>371</width>
+          <height>431</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -269,41 +269,41 @@
        <widget class="QLabel" name="labelWordMask">
         <property name="geometry">
          <rect>
-          <x>82</x>
-          <y>396</y>
-          <width>711</width>
-          <height>111</height>
+          <x>410</x>
+          <y>420</y>
+          <width>481</width>
+          <height>81</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Comic Sans MS</family>
-          <pointsize>48</pointsize>
+          <pointsize>24</pointsize>
           <bold>false</bold>
          </font>
         </property>
         <property name="text">
-         <string/>
+         <string> _ _ _ _ _ _ _ V E C _ _ R</string>
         </property>
         <property name="scaledContents">
          <bool>false</bool>
         </property>
         <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
        <widget class="QWidget" name="keyboardWidget" native="true">
         <property name="geometry">
          <rect>
-          <x>11</x>
-          <y>561</y>
-          <width>869</width>
-          <height>166</height>
+          <x>20</x>
+          <y>520</y>
+          <width>881</width>
+          <height>211</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_3" rowminimumheight="1,1,1,1,1,1">
          <property name="spacing">
-          <number>5</number>
+          <number>7</number>
          </property>
          <item row="2" column="5">
           <widget class="QPushButton" name="buttonF">
@@ -322,7 +322,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -347,7 +347,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -365,18 +365,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>Y</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -397,7 +403,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -415,18 +421,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>S</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -447,7 +459,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -465,18 +477,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>T</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -490,18 +508,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>U</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -522,7 +546,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -540,18 +564,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>V</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -572,7 +602,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -597,7 +627,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -622,7 +652,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -647,7 +677,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -665,14 +695,14 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -690,18 +720,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>Z</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -722,7 +758,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -747,7 +783,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -772,7 +808,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -797,7 +833,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -822,7 +858,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -840,18 +876,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>W</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -872,7 +914,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -897,7 +939,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -915,18 +957,24 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>12</width>
+             <height>12</height>
             </size>
            </property>
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
             <string>X</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -947,7 +995,7 @@
            <property name="font">
             <font>
              <family>Comic Sans MS</family>
-             <pointsize>16</pointsize>
+             <pointsize>12</pointsize>
             </font>
            </property>
            <property name="text">
@@ -963,7 +1011,7 @@
         </property>
         <property name="geometry">
          <rect>
-          <x>770</x>
+          <x>800</x>
           <y>20</y>
           <width>80</width>
           <height>47</height>
@@ -986,45 +1034,86 @@
          <string>||</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="buttonBackToMenu">
+       <widget class="QLabel" name="labelAttemptsLeft">
         <property name="geometry">
          <rect>
-          <x>560</x>
-          <y>270</y>
-          <width>131</width>
+          <x>640</x>
+          <y>90</y>
+          <width>241</width>
           <height>51</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <family>Comic Sans MS</family>
-          <pointsize>8</pointsize>
-          <bold>true</bold>
+          <pointsize>12</pointsize>
+          <bold>false</bold>
          </font>
         </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
         <property name="text">
-         <string>BACK TO MENU</string>
+         <string>ATTEMPTS LEFT: 5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
-       <widget class="QPushButton" name="buttonNewGame">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>270</y>
-          <width>131</width>
-          <height>51</height>
+          <x>410</x>
+          <y>320</y>
+          <width>491</width>
+          <height>71</height>
          </rect>
         </property>
-        <property name="font">
-         <font>
-          <family>Comic Sans MS</family>
-          <pointsize>8</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>NEW GAME</string>
-        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>30</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="buttonBackToMenu">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Comic Sans MS</family>
+             <pointsize>10</pointsize>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>BACK TO MENU</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="buttonNewGame">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>16</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Comic Sans MS</family>
+             <pointsize>10</pointsize>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>NEW GAME</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="pageStatistics">
@@ -1112,13 +1201,15 @@
      </widget>
     </item>
    </layout>
+   <zorder>buttonBack</zorder>
+   <zorder>stackedWidget</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>913</width>
+     <width>941</width>
      <height>25</height>
     </rect>
    </property>

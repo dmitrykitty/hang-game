@@ -27,8 +27,9 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
         finishRound(true);
     });
     connect(&controller_, &GameController::gameLost,
-        this, &MainWindow::onGameLost);
-
+            this, &MainWindow::onGameLost);
+    connect(&controller_, &GameController::attemptsLeft,
+            this, &MainWindow::updateAttemptsLabel);
 
 
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
@@ -83,7 +84,7 @@ void MainWindow::settingsClicked() {
     ui->stackedWidget->setCurrentIndex(PageSettings);
 }
 
-void MainWindow::onGameLost(const QString &secretWord) {
+void MainWindow::onGameLost(const QString& secretWord) {
     finishRound(false);
     ui->labelWordMask->setText(secretWord);
 }
@@ -163,7 +164,6 @@ void MainWindow::finishRound(bool won) const {
     else {
         showLoseImage();
     }
-
 }
 
 
@@ -187,8 +187,16 @@ void MainWindow::beginNewGame() {
     ui->buttonPause->setVisible(true);
     ui->buttonBackToMenu->setVisible(false);
     ui->buttonNewGame->setVisible(false);
+    updateAttemptsLabel(Game::getMaxError());
+
 
     controller_.startNewGame(currentDifficulty_);
 
     ui->keyboardWidget->setEnabled(true);
+    for (auto* btn: ui->keyboardWidget->findChildren<QPushButton *>())
+        btn->setEnabled(true);
+}
+
+void MainWindow::updateAttemptsLabel(int remaining) {
+    ui->labelAttemptsLeft->setText(tr("ATTEMPTS LEFT: ") + QString::number(remaining));
 }
