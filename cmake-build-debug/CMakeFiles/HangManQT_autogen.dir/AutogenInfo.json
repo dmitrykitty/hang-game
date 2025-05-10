@@ -427,6 +427,12 @@
 			null
 		],
 		[
+			"D:/study/AGH/C_plus_projects/HangManQT/GameController/GameController.h",
+			"MU",
+			"H3Q7Z7QLNK/moc_GameController.cpp",
+			null
+		],
+		[
 			"D:/study/AGH/C_plus_projects/HangManQT/GameLogic/Game.h",
 			"MU",
 			"EDAMEEOPZ5/moc_Game.cpp",
@@ -519,6 +525,11 @@
 		],
 		[
 			"D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/windows/difficultydialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/study/AGH/C_plus_projects/HangManQT/GameController/GameController.cpp",
 			"MU",
 			null
 		],

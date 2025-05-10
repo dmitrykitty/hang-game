@@ -89,6 +89,14 @@ build CMakeFiles/HangManQT.dir/GameLogic/Game.cpp.obj: CXX_COMPILER__HangManQT_u
   OBJECT_DIR = CMakeFiles\HangManQT.dir
   OBJECT_FILE_DIR = CMakeFiles\HangManQT.dir\GameLogic
 
+build CMakeFiles/HangManQT.dir/GameController/GameController.cpp.obj: CXX_COMPILER__HangManQT_unscanned_Debug D$:/study/AGH/C_plus_projects/HangManQT/GameController/GameController.cpp || cmake_object_order_depends_target_HangManQT
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\HangManQT.dir\GameController\GameController.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug -ID:/study/AGH/C_plus_projects/HangManQT -isystem D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/include -isystem C:/Qt/6.9.0/mingw_64/include/QtCore -isystem C:/Qt/6.9.0/mingw_64/include -isystem C:/Qt/6.9.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.9.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.9.0/mingw_64/include/QtGui -isystem C:/Qt/6.9.0/mingw_64/include/QtNetwork -isystem C:/Qt/6.9.0/mingw_64/include/QtSql -isystem C:/Qt/6.9.0/mingw_64/include/QtMultimedia
+  OBJECT_DIR = CMakeFiles\HangManQT.dir
+  OBJECT_FILE_DIR = CMakeFiles\HangManQT.dir\GameController
+
 build CMakeFiles/HangManQT.dir/HangManQT_autogen/EWIEGA46WW/qrc_Resources.cpp.obj: CXX_COMPILER__HangManQT_unscanned_Debug D$:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/EWIEGA46WW/qrc_Resources.cpp || cmake_object_order_depends_target_HangManQT
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\HangManQT.dir\HangManQT_autogen\EWIEGA46WW\qrc_Resources.cpp.obj.d
@@ -105,7 +113,7 @@ build CMakeFiles/HangManQT.dir/HangManQT_autogen/EWIEGA46WW/qrc_Resources.cpp.ob
 #############################################
 # Link the executable HangManQT.exe
 
-build HangManQT.exe: CXX_EXECUTABLE_LINKER__HangManQT_Debug CMakeFiles/HangManQT.dir/HangManQT_autogen/mocs_compilation.cpp.obj CMakeFiles/HangManQT.dir/main.cpp.obj CMakeFiles/HangManQT.dir/GUI/Source/mainwindow.cpp.obj CMakeFiles/HangManQT.dir/GUI/Source/windows/difficultydialog.cpp.obj CMakeFiles/HangManQT.dir/GameLogic/Game.cpp.obj CMakeFiles/HangManQT.dir/HangManQT_autogen/EWIEGA46WW/qrc_Resources.cpp.obj | C$:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Sql.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Multimedia.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Network.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Core.a || HangManQT_autogen HangManQT_autogen_timestamp_deps
+build HangManQT.exe: CXX_EXECUTABLE_LINKER__HangManQT_Debug CMakeFiles/HangManQT.dir/HangManQT_autogen/mocs_compilation.cpp.obj CMakeFiles/HangManQT.dir/main.cpp.obj CMakeFiles/HangManQT.dir/GUI/Source/mainwindow.cpp.obj CMakeFiles/HangManQT.dir/GUI/Source/windows/difficultydialog.cpp.obj CMakeFiles/HangManQT.dir/GameLogic/Game.cpp.obj CMakeFiles/HangManQT.dir/GameController/GameController.cpp.obj CMakeFiles/HangManQT.dir/HangManQT_autogen/EWIEGA46WW/qrc_Resources.cpp.obj | C$:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Sql.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Multimedia.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Network.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.9.0/mingw_64/lib/libQt6Core.a || HangManQT_autogen HangManQT_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = C:/Qt/6.9.0/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Sql.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Multimedia.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Network.a  -lws2_32  C:/Qt/6.9.0/mingw_64/lib/libQt6Gui.a  C:/Qt/6.9.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\HangManQT.dir

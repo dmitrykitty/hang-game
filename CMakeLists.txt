@@ -31,6 +31,8 @@ add_executable(${PROJECT_NAME}
         GameLogic/Game.h
         GameLogic/Game.cpp
         Resources.qrc
+        GameController/GameController.cpp
+        GameController/GameController.h
 )
 
 target_link_libraries(${PROJECT_NAME}
