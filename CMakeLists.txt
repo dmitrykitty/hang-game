@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.30)
 project(HangManQT)
 
-set(CMAKE_PREFIX_PATH "C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6"
-        CACHE PATH "Only use this one Qt6 location" FORCE)
+#set(CMAKE_PREFIX_PATH "C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6"
+#        CACHE PATH "Only use this one Qt6 location" FORCE)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -31,8 +31,6 @@ add_executable(${PROJECT_NAME}
         GameLogic/Game.h
         GameLogic/Game.cpp
         Resources.qrc
-
-
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -50,3 +48,9 @@ target_link_libraries(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} PRIVATE
         "${CMAKE_BINARY_DIR}/${PROJECT_NAME}_autogen/include"
 )
+
+
+#-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}
+#-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}
+#-DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
+#-DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}

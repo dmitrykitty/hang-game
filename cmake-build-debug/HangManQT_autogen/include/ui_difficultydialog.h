@@ -14,14 +14,13 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_DifficultyDialog
+class Ui_difficultyDialog
 {
 public:
-    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QPushButton *buttonEasy;
     QPushButton *buttonMedium;
@@ -32,14 +31,12 @@ public:
         if (difficultyDialog->objectName().isEmpty())
             difficultyDialog->setObjectName("difficultyDialog");
         difficultyDialog->resize(287, 253);
-        verticalLayoutWidget = new QWidget(difficultyDialog);
-        verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(40, 27, 211, 191));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout_2 = new QVBoxLayout(difficultyDialog);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(15);
         verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        buttonEasy = new QPushButton(verticalLayoutWidget);
+        buttonEasy = new QPushButton(difficultyDialog);
         buttonEasy->setObjectName("buttonEasy");
         QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
         sizePolicy.setHorizontalStretch(0);
@@ -54,7 +51,7 @@ public:
 
         verticalLayout->addWidget(buttonEasy);
 
-        buttonMedium = new QPushButton(verticalLayoutWidget);
+        buttonMedium = new QPushButton(difficultyDialog);
         buttonMedium->setObjectName("buttonMedium");
         sizePolicy.setHeightForWidth(buttonMedium->sizePolicy().hasHeightForWidth());
         buttonMedium->setSizePolicy(sizePolicy);
@@ -62,13 +59,16 @@ public:
 
         verticalLayout->addWidget(buttonMedium);
 
-        buttonHard = new QPushButton(verticalLayoutWidget);
+        buttonHard = new QPushButton(difficultyDialog);
         buttonHard->setObjectName("buttonHard");
         sizePolicy.setHeightForWidth(buttonHard->sizePolicy().hasHeightForWidth());
         buttonHard->setSizePolicy(sizePolicy);
         buttonHard->setFont(font);
 
         verticalLayout->addWidget(buttonHard);
+
+
+        verticalLayout_2->addLayout(verticalLayout);
 
 
         retranslateUi(difficultyDialog);
@@ -78,16 +78,16 @@ public:
 
     void retranslateUi(QDialog *difficultyDialog)
     {
-        difficultyDialog->setWindowTitle(QCoreApplication::translate("DifficultyDialog", "Choose difficulty", nullptr));
-        buttonEasy->setText(QCoreApplication::translate("DifficultyDialog", "EASY", nullptr));
-        buttonMedium->setText(QCoreApplication::translate("DifficultyDialog", "MEDIUM", nullptr));
-        buttonHard->setText(QCoreApplication::translate("DifficultyDialog", "HARD", nullptr));
+        difficultyDialog->setWindowTitle(QCoreApplication::translate("difficultyDialog", "Choose difficulty", nullptr));
+        buttonEasy->setText(QCoreApplication::translate("difficultyDialog", "EASY", nullptr));
+        buttonMedium->setText(QCoreApplication::translate("difficultyDialog", "MEDIUM", nullptr));
+        buttonHard->setText(QCoreApplication::translate("difficultyDialog", "HARD", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class DifficultyDialog: public Ui_DifficultyDialog {};
+    class difficultyDialog: public Ui_difficultyDialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE

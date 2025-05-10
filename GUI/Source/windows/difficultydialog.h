@@ -4,7 +4,7 @@
 #include <QDialog>
 
 namespace Ui {
-    class DifficultyDialog;
+    class difficultyDialog;
 }
 
 class DifficultyDialog : public QDialog {
@@ -17,7 +17,7 @@ public:
     ~DifficultyDialog() override;
 
 private:
-    Ui::DifficultyDialog *ui;
+    Ui::difficultyDialog *ui;
     QString choice = "Easy";
 
 private slots:

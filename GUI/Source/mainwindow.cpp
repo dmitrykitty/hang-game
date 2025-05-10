@@ -9,6 +9,7 @@
 MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
     ui->buttonBack->setVisible(false);
+    ui->buttonPause->setVisible(false);
 
     ui->stackedWidget->setCurrentIndex(PageMenu);
 
@@ -21,6 +22,7 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(ui->buttonStatistics, &QPushButton::clicked, this, &MainWindow::statisticsClicked);
     connect(ui->buttonExit, &QPushButton::clicked, this, &MainWindow::exitClicked);
     connect(ui->buttonBack, &QPushButton::clicked, this, &MainWindow::backClicked);
+    connect(ui->buttonPause, &QPushButton::clicked, this, &MainWindow::pauseClicked);
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
@@ -39,9 +41,10 @@ MainWindow::~MainWindow() {
 
 void MainWindow::startGameClicked() {
     ui->stackedWidget->setCurrentIndex(PageGame);
+    ui->buttonPause->setVisible(true);
 
     //ustawienie słowa z DB w przyszłości
-    QString word = "HANGMAN";
+    QString word = "CLASS";
     game.setSecretWord(word);
     updateGameImage();
     updateGameLabel();
@@ -92,6 +95,20 @@ void MainWindow::backClicked() {
     ui->buttonBack->setVisible(false);
 }
 
+void MainWindow::pauseClicked() {
+    auto reply = QMessageBox::question(
+        this,
+        tr("BackToMenu"),
+        tr("Are you sure you want to got to menu?"),
+        QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        ui->buttonPause->setVisible(false);
+        ui->stackedWidget->setCurrentIndex(PageMenu);
+    }
+    this->show();
+}
+
 void MainWindow::statisticsClicked() {
     ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageStatistisc);
@@ -125,6 +142,7 @@ void MainWindow::onLetterClicked(QChar ch) {
     } else {
         if (game.isLost()){
             ui->keyboardWidget->setEnabled(false);
+            ui->buttonPause->setEnabled(false);
             showLoseImage();
         }
         else
@@ -141,4 +159,16 @@ void MainWindow::updateGameImage() {
 
 void MainWindow::updateGameLabel() {
     ui->labelWordMask->setText(game.getCurrentDisplay());
+}
+
+void MainWindow::resetGame() {
+    game = Game();
+    QString word = "VECTOR";
+    game.setSecretWord(word);
+    for (auto *btn : ui->keyboardWidget->findChildren<QPushButton*>()) {
+        btn->setEnabled(true);
+    }
+    updateGameImage();
+    updateGameLabel();
+    ui->keyboardWidget->setEnabled(true);
 }

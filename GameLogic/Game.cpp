@@ -3,6 +3,7 @@
 void Game::setSecretWord(const QString& word) {
     secretWord = std::move(word.toUpper());
     QString mainDisplay;
+    mainDisplay.reserve(word.size() * 2 - 1);
     for (int i = 0; i < secretWord.size(); i++) {
         mainDisplay += '_';
         if (i + 1 < secretWord.size())
@@ -23,7 +24,7 @@ void Game::updateDisplay(QChar letter) {
 
     for (int i = 0; i < secretWord.size(); ++i) {
         QChar real = secretWord.at(i);
-        // либо открываем букву, либо оставляем _
+        // out <- letter z secret word lub _
         QChar out = (letter == real) ? real : currentDisplay.at(2*i);
         newDisplay += out;
         if (i + 1 < secretWord.size())
@@ -31,7 +32,6 @@ void Game::updateDisplay(QChar letter) {
     }
     currentDisplay = std::move(newDisplay);
 }
-
 bool Game::isLost() const {
     return errorCount >= ERRORMAX;
 }

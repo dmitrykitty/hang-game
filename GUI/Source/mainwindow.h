@@ -55,10 +55,13 @@ private slots:
 
     void backClicked();
 
+    void pauseClicked();
+
     void onLetterClicked(QChar ch);
 
 private:
     //game GUI update
+    void resetGame();
 
     void updateGameImage();
 

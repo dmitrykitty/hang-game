@@ -2,7 +2,7 @@
 #include "difficultydialog.h"
 #include "ui_difficultydialog.h"
 
-DifficultyDialog::DifficultyDialog(QWidget *parent): QDialog(parent), ui(new Ui::DifficultyDialog) {
+DifficultyDialog::DifficultyDialog(QWidget *parent): QDialog(parent), ui(new Ui::difficultyDialog) {
     ui->setupUi(this);
     connect(ui->buttonEasy, &QPushButton::clicked, this, &DifficultyDialog::easyClicked);
     connect(ui->buttonMedium, &QPushButton::clicked, this, &DifficultyDialog::mediumClicked);

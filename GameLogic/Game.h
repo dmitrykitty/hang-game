@@ -10,7 +10,7 @@
 
 
 class Game {
-    static constexpr int ERRORMAX = 7;
+    static constexpr int ERRORMAX = 6;
 
     QString secretWord = "";
     QString currentDisplay = "";
