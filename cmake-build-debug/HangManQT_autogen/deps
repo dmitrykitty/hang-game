@@ -1,4 +1,6 @@
 HangManQT_autogen/timestamp: \
+	C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
+	C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/QVariant \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
 	C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \
@@ -764,6 +766,8 @@ HangManQT_autogen/timestamp: \
 	D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/mainwindow.h \
 	D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/windows/difficultydialog.cpp \
 	D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/windows/difficultydialog.h \
+	D:/study/AGH/C_plus_projects/HangManQT/GameController/GameController.cpp \
+	D:/study/AGH/C_plus_projects/HangManQT/GameController/GameController.h \
 	D:/study/AGH/C_plus_projects/HangManQT/GameLogic/Game.cpp \
 	D:/study/AGH/C_plus_projects/HangManQT/GameLogic/Game.h \
 	D:/study/AGH/C_plus_projects/HangManQT/Resources.qrc \

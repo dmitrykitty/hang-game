@@ -1,5 +1,7 @@
 D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5QTUFII/moc_mainwindow.cpp: D:/study/AGH/C_plus_projects/HangManQT/GUI/Source/mainwindow.h \
   D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/moc_predefs.h \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/QObject \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.0/mingw_64/include/QtCore/QVariant \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20functional.h \
@@ -452,5 +454,6 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  D:/study/AGH/C_plus_projects/HangManQT/GameController/GameController.h \
   D:/study/AGH/C_plus_projects/HangManQT/GameLogic/Game.h \
   D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/include/ui_mainwindow.h

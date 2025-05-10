@@ -1,25 +1,21 @@
-//
-// Created by Lenovo on 27/04/2025.
-//
+#pragma once
 
-#ifndef GAME_H
-#define GAME_H
 #include <qstring.h>
-
 #include <utility>
-
 
 class Game {
     static constexpr int ERRORMAX = 6;
 
-    QString secretWord = "";
-    QString currentDisplay = "";
+    QString secretWord;
+    QString currentDisplay;
     int errorCount{};
+
+    void updateDisplay(QChar letter);
 
 public:
     //Constructors
     Game() = default;
-    explicit Game(QString word): secretWord(std::move(word)), currentDisplay(secretWord.size(), QChar('_')) {}
+    explicit Game(QString  word): secretWord(std::move(word)) {}
 
     //Getters
     [[nodiscard]] int errors() const { return errorCount; }
@@ -30,12 +26,9 @@ public:
 
     //Update the Game
     [[nodiscard]] bool guess(QChar letter);
-    void updateDisplay(QChar letter);
+
 
     //GameResult
     [[nodiscard]] bool isWon() const;
     [[nodiscard]] bool isLost() const;
 };
-
-
-#endif //GAME_H

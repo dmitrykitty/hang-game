@@ -18,8 +18,8 @@ public:
     void guessLetter(QChar letter);
 
     signals:
-        /// sho new word mask
-        void displayUpdated(const QString &newDisplay);
+    /// show new word mask
+    void displayUpdated(const QString &newDisplay);
 
     void imageUpdated(int errorCount);
 

@@ -16,7 +16,21 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     QPixmap pixMenu(":/img/GUI/Resources/img/mainWindowPNGImage.png");
     ui->pictureMain->setPixmap(pixMenu.scaled(ui->pictureMain->size(), Qt::KeepAspectRatio));
 
-    connect(ui->buttonStart, &QPushButton::clicked, this, &MainWindow::startGameClicked);
+    connect(ui->buttonStart, &QPushButton::clicked, this, &MainWindow::beginNewGame);
+    connect(ui->buttonNewGame, &QPushButton::clicked, this, &MainWindow::beginNewGame);
+
+    connect(&controller_, &GameController::displayUpdated,
+            this, &MainWindow::updateGameLabel);
+    connect(&controller_, &GameController::imageUpdated,
+            this, &MainWindow::updateGameImage);
+    connect(&controller_, &GameController::gameWon, this, [this]() {
+        finishRound(true);
+    });
+    connect(&controller_, &GameController::gameLost, this, [this]() {
+        finishRound(false);
+    });
+
+
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
     connect(ui->buttonSettings, &QPushButton::clicked, this, &MainWindow::settingsClicked);
     connect(ui->buttonStatistics, &QPushButton::clicked, this, &MainWindow::statisticsClicked);
@@ -24,14 +38,13 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(ui->buttonBack, &QPushButton::clicked, this, &MainWindow::backClicked);
     connect(ui->buttonPause, &QPushButton::clicked, this, &MainWindow::pauseClicked);
     connect(ui->buttonBackToMenu, &QPushButton::clicked, this, &MainWindow::backClicked);
-    connect(ui->buttonNewGame, &QPushButton::clicked, this, &MainWindow::newGameClicked);
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
         // dostajemy char z PushButton
         QChar ch = btn->text().at(0).toUpper();
         connect(btn, &QPushButton::clicked, this, [this, ch, btn]() {
-            onLetterClicked(ch);
+            controller_.guessLetter(ch);
             btn->setEnabled(false);
         });
     }
@@ -54,8 +67,7 @@ void MainWindow::difficultyClicked() {
         // jak uzytkownic cos wybrał - exec() zwroci Accepted
 
         QString level = dlg.selectedDifficulty();
-
-        //currentDifficulty = level;
+        currentDifficulty_ = level;
 
 
         // QMessageBox::information(
@@ -132,17 +144,7 @@ void MainWindow::showLoseImage() {
 
 
 void MainWindow::onLetterClicked(QChar ch) {
-    if (game.guess(ch)) {
-        game.updateDisplay(ch);
-        updateGameLabel();
-    } else {
-        updateGameImage();
-    }
-
-    if (game.isWon())
-        finishRound(true);
-    else if (game.isLost())
-        finishRound(false);
+    controller_.guessLetter(ch);
 }
 
 void MainWindow::finishRound(bool won) {
@@ -158,14 +160,18 @@ void MainWindow::finishRound(bool won) {
 }
 
 
-void MainWindow::updateGameImage() {
-    int errs = qBound(0, game.errors(), int(hangmanImages.size()));
-    ui->pictureGame->setPixmap(QPixmap(hangmanImages[errs]).scaled(
-        ui->pictureGame->size(), Qt::KeepAspectRatio));
+void MainWindow::updateGameImage(int errorCount) {
+    int maxIdx = int(hangmanImages.size()) - 1;
+    int errs = std::clamp(errorCount, 0, maxIdx);
+
+    ui->pictureGame->setPixmap(
+        QPixmap(hangmanImages[errs])
+        .scaled(ui->pictureGame->size(), Qt::KeepAspectRatio)
+    );
 }
 
-void MainWindow::updateGameLabel() {
-    ui->labelWordMask->setText(game.getCurrentDisplay());
+void MainWindow::updateGameLabel(const QString& newDisplay) {
+    ui->labelWordMask->setText(newDisplay);
 }
 
 
@@ -175,14 +181,7 @@ void MainWindow::beginNewGame() {
     ui->buttonBackToMenu->setVisible(false);
     ui->buttonNewGame->setVisible(false);
 
-    game = Game();
-    QString word = "VECTOR";
-    game.setSecretWord(word);
+    controller_.startNewGame(currentDifficulty_);
 
-    for (auto* btn: ui->keyboardWidget->findChildren<QPushButton *>()) {
-        btn->setEnabled(true);
-    }
-    updateGameImage();
-    updateGameLabel();
     ui->keyboardWidget->setEnabled(true);
 }

@@ -1,10 +1,10 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <ui_mainwindow.h>
 
 #include "GameLogic/Game.h"
+#include "GameController/GameController.h"
 
 namespace Ui {
     class MainWindow;
@@ -13,7 +13,8 @@ namespace Ui {
 class MainWindow : public QMainWindow {
     Q_OBJECT
     Ui::MainWindow* ui;
-    Game game;
+    GameController controller_;
+    QString currentDifficulty_ = "Easy";
 
     enum PageIndex {
         PageMenu = 0,
@@ -61,14 +62,14 @@ private slots:
 
     void onLetterClicked(QChar ch);
 
-private:
-    //game GUI update
+    void updateGameImage(int errorCount);
+
+    void updateGameLabel(const QString &newDisplay);
 
     void beginNewGame();
 
-    void updateGameImage();
-
-    void updateGameLabel();
+private:
+    //game GUI update
 
     void showWonImage();
 
@@ -77,4 +78,4 @@ private:
     void finishRound(bool won);
 };
 
-#endif // MAINWINDOW_H
+
