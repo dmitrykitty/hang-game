@@ -57,11 +57,14 @@ private slots:
 
     void pauseClicked();
 
+    void newGameClicked();
+
     void onLetterClicked(QChar ch);
 
 private:
     //game GUI update
-    void resetGame();
+
+    void beginNewGame();
 
     void updateGameImage();
 
@@ -70,6 +73,8 @@ private:
     void showWonImage();
 
     void showLoseImage();
+
+    void finishRound(bool won);
 };
 
 #endif // MAINWINDOW_H

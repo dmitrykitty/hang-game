@@ -986,7 +986,7 @@
          <string>||</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="buttonBackToMenuAfterLose">
+       <widget class="QPushButton" name="buttonBackToMenu">
         <property name="geometry">
          <rect>
           <x>560</x>
@@ -1006,7 +1006,7 @@
          <string>BACK TO MENU</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="buttonBackToMenuAfterLose_2">
+       <widget class="QPushButton" name="buttonNewGame">
         <property name="geometry">
          <rect>
           <x>720</x>
