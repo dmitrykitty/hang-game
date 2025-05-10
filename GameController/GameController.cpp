@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include <QDebug>
 
 GameController::GameController(QObject *parent): QObject(parent){}
 
@@ -23,5 +24,7 @@ void GameController::guessLetter(QChar letter) {
 
 
     if (game_.isWon())   emit gameWon();
-    if (game_.isLost())  emit gameLost();
+    if (game_.isLost()) {
+        emit gameLost(game_.getSecretWord());
+    }
 }

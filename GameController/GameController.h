@@ -7,31 +7,27 @@
 
 class GameController : public QObject {
     Q_OBJECT
+
 public:
-    explicit GameController(QObject *parent = nullptr);
+    explicit GameController(QObject* parent = nullptr);
 
-    public slots:
-    /// get new word and restart the game
-    void startNewGame(const QString &difficulty);
+public slots:
+    void startNewGame(const QString& difficulty);
 
-    /// letter clicked
     void guessLetter(QChar letter);
 
-    signals:
+signals:
     /// show new word mask
-    void displayUpdated(const QString &newDisplay);
+    void displayUpdated(const QString& newDisplay);
 
     void imageUpdated(int errorCount);
 
     void gameWon();
 
-    void gameLost();
+    void gameLost(const QString& secretWord);
 
 private:
     Game game_;
     QString currentDifficulty_;
     //DatabaseManager &db_ = DatabaseManager::instance();
 };
-
-
-

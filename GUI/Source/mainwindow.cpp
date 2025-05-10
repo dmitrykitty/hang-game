@@ -26,9 +26,9 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(&controller_, &GameController::gameWon, this, [this]() {
         finishRound(true);
     });
-    connect(&controller_, &GameController::gameLost, this, [this]() {
-        finishRound(false);
-    });
+    connect(&controller_, &GameController::gameLost,
+        this, &MainWindow::onGameLost);
+
 
 
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
@@ -83,6 +83,11 @@ void MainWindow::settingsClicked() {
     ui->stackedWidget->setCurrentIndex(PageSettings);
 }
 
+void MainWindow::onGameLost(const QString &secretWord) {
+    finishRound(false);
+    ui->labelWordMask->setText(secretWord);
+}
+
 
 void MainWindow::exitClicked() {
     auto reply = QMessageBox::question(
@@ -97,7 +102,7 @@ void MainWindow::exitClicked() {
     this->show();
 }
 
-void MainWindow::backClicked() {
+void MainWindow::backClicked() const {
     ui->stackedWidget->setCurrentIndex(PageMenu);
     ui->buttonBack->setVisible(false);
 }
@@ -126,7 +131,7 @@ void MainWindow::statisticsClicked() {
     ui->stackedWidget->setCurrentIndex(PageStatistisc);
 }
 
-void MainWindow::showWonImage() {
+void MainWindow::showWonImage() const {
     ui->pictureGame->setPixmap(
         QPixmap(hangmanImages[sz - 1]).scaled(
             ui->pictureGame->size(), Qt::KeepAspectRatio
@@ -134,7 +139,7 @@ void MainWindow::showWonImage() {
     );
 }
 
-void MainWindow::showLoseImage() {
+void MainWindow::showLoseImage() const {
     ui->pictureGame->setPixmap(
         QPixmap(hangmanImages[sz - 2]).scaled(
             ui->pictureGame->size(), Qt::KeepAspectRatio
@@ -147,7 +152,7 @@ void MainWindow::onLetterClicked(QChar ch) {
     controller_.guessLetter(ch);
 }
 
-void MainWindow::finishRound(bool won) {
+void MainWindow::finishRound(bool won) const {
     ui->keyboardWidget->setEnabled(false);
     ui->buttonPause->setVisible(false);
     ui->buttonBackToMenu->setVisible(true);
@@ -155,12 +160,14 @@ void MainWindow::finishRound(bool won) {
 
     if (won)
         showWonImage();
-    else
+    else {
         showLoseImage();
+    }
+
 }
 
 
-void MainWindow::updateGameImage(int errorCount) {
+void MainWindow::updateGameImage(int errorCount) const {
     int maxIdx = int(hangmanImages.size()) - 1;
     int errs = std::clamp(errorCount, 0, maxIdx);
 

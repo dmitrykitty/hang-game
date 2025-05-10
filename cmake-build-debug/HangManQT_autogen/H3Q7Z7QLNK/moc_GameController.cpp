@@ -46,6 +46,7 @@ template <> constexpr inline auto GameController::qt_create_metaobjectdata<qt_me
         "errorCount",
         "gameWon",
         "gameLost",
+        "secretWord",
         "startNewGame",
         "difficulty",
         "guessLetter",
@@ -64,14 +65,16 @@ template <> constexpr inline auto GameController::qt_create_metaobjectdata<qt_me
         // Signal 'gameWon'
         QtMocHelpers::SignalData<void()>(6, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'gameLost'
-        QtMocHelpers::SignalData<void()>(7, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SignalData<void(const QString &)>(7, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 8 },
+        }}),
         // Slot 'startNewGame'
-        QtMocHelpers::SlotData<void(const QString &)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QString, 9 },
+        QtMocHelpers::SlotData<void(const QString &)>(9, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 10 },
         }}),
         // Slot 'guessLetter'
-        QtMocHelpers::SlotData<void(QChar)>(10, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QChar, 11 },
+        QtMocHelpers::SlotData<void(QChar)>(11, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QChar, 12 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -99,7 +102,7 @@ void GameController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 0: _t->displayUpdated((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 1: _t->imageUpdated((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 2: _t->gameWon(); break;
-        case 3: _t->gameLost(); break;
+        case 3: _t->gameLost((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 4: _t->startNewGame((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 5: _t->guessLetter((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
         default: ;
@@ -112,7 +115,7 @@ void GameController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
             return;
         if (QtMocHelpers::indexOfMethod<void (GameController::*)()>(_a, &GameController::gameWon, 2))
             return;
-        if (QtMocHelpers::indexOfMethod<void (GameController::*)()>(_a, &GameController::gameLost, 3))
+        if (QtMocHelpers::indexOfMethod<void (GameController::*)(const QString & )>(_a, &GameController::gameLost, 3))
             return;
     }
 }
@@ -167,8 +170,8 @@ void GameController::gameWon()
 }
 
 // SIGNAL 3
-void GameController::gameLost()
+void GameController::gameLost(const QString & _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+    QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
 }
 QT_WARNING_POP

@@ -54,7 +54,7 @@ private slots:
 
     void exitClicked();
 
-    void backClicked();
+    void backClicked() const;
 
     void pauseClicked();
 
@@ -62,20 +62,22 @@ private slots:
 
     void onLetterClicked(QChar ch);
 
-    void updateGameImage(int errorCount);
+    void updateGameImage(int errorCount) const;
 
     void updateGameLabel(const QString &newDisplay);
 
     void beginNewGame();
 
+    void onGameLost(const QString &secretWord);
+
 private:
     //game GUI update
 
-    void showWonImage();
+    void showWonImage() const;
 
-    void showLoseImage();
+    void showLoseImage() const;
 
-    void finishRound(bool won);
+    void finishRound(bool won) const;
 };
 
 

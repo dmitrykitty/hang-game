@@ -10,16 +10,16 @@ class Game {
     QString currentDisplay;
     int errorCount{};
 
-    void updateDisplay(QChar letter);
-
 public:
     //Constructors
     Game() = default;
-    explicit Game(QString  word): secretWord(std::move(word)) {}
+
+    explicit Game(QString word): secretWord(std::move(word)) {}
 
     //Getters
     [[nodiscard]] int errors() const { return errorCount; }
     QString& getCurrentDisplay() { return currentDisplay; }
+    [[nodiscard]] QString getSecretWord() const { return secretWord; }
 
     //Setters
     void setSecretWord(const QString& word);
@@ -27,8 +27,10 @@ public:
     //Update the Game
     [[nodiscard]] bool guess(QChar letter);
 
+    void updateDisplay(QChar letter);
 
     //GameResult
     [[nodiscard]] bool isWon() const;
+
     [[nodiscard]] bool isLost() const;
 };
