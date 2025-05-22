@@ -34,7 +34,7 @@
 			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
 			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
 			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Program Files/JetBrains/CLion 2024.3.5/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/Qt/6.9.0/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake"
 		],
@@ -52,7 +52,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 38,
+				"line" : 39,
 				"parent" : 0
 			},
 			{
@@ -194,7 +194,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 50,
+				"line" : 51,
 				"parent" : 0
 			}
 		]
@@ -335,7 +335,7 @@
 				6,
 				9,
 				11,
-				16
+				17
 			]
 		}
 	],
@@ -453,7 +453,7 @@
 				6,
 				9,
 				11,
-				16
+				17
 			]
 		},
 		{
@@ -473,7 +473,8 @@
 				8,
 				12,
 				13,
-				14
+				14,
+				15
 			]
 		},
 		{
@@ -487,15 +488,15 @@
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				15
+				16
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				17,
-				18
+				18,
+				19
 			]
 		}
 	],
@@ -571,6 +572,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "GameController/GameController.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "DataBase/DataBaseManager.h",
 			"sourceGroupIndex" : 2
 		},
 		{

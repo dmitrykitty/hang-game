@@ -8,10 +8,10 @@
 		},
 		"paths" : 
 		{
-			"cmake" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
-			"cpack" : "C:/Qt/Tools/CMake_64/bin/cpack.exe",
-			"ctest" : "C:/Qt/Tools/CMake_64/bin/ctest.exe",
-			"root" : "C:/Qt/Tools/CMake_64/share/cmake-3.30"
+			"cmake" : "C:/Program Files/JetBrains/CLion 2024.3.5/bin/cmake/win/x64/bin/cmake.exe",
+			"cpack" : "C:/Program Files/JetBrains/CLion 2024.3.5/bin/cmake/win/x64/bin/cpack.exe",
+			"ctest" : "C:/Program Files/JetBrains/CLion 2024.3.5/bin/cmake/win/x64/bin/ctest.exe",
+			"root" : "C:/Program Files/JetBrains/CLion 2024.3.5/bin/cmake/win/x64/share/cmake-3.30"
 		},
 		"version" : 
 		{
@@ -26,7 +26,7 @@
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-944634a907eb72337aab.json",
+			"jsonFile" : "codemodel-v2-62223147d7d0945178e4.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-62c5a483bf0a4658b486.json",
+			"jsonFile" : "cache-v2-5685b39b4d95d5c0e18e.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-40ff5cc35a428af67c90.json",
+			"jsonFile" : "cmakeFiles-v1-9a84fa738f05befef73c.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -66,7 +66,7 @@
 	{
 		"cache-v2" : 
 		{
-			"jsonFile" : "cache-v2-62c5a483bf0a4658b486.json",
+			"jsonFile" : "cache-v2-5685b39b4d95d5c0e18e.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -76,7 +76,7 @@
 		},
 		"cmakeFiles-v1" : 
 		{
-			"jsonFile" : "cmakeFiles-v1-40ff5cc35a428af67c90.json",
+			"jsonFile" : "cmakeFiles-v1-9a84fa738f05befef73c.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -86,7 +86,7 @@
 		},
 		"codemodel-v2" : 
 		{
-			"jsonFile" : "codemodel-v2-944634a907eb72337aab.json",
+			"jsonFile" : "codemodel-v2-62223147d7d0945178e4.json",
 			"kind" : "codemodel",
 			"version" : 
 			{

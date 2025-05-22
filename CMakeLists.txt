@@ -33,6 +33,7 @@ add_executable(${PROJECT_NAME}
         Resources.qrc
         GameController/GameController.cpp
         GameController/GameController.h
+        DataBase/DataBaseManager.h
 )
 
 target_link_libraries(${PROJECT_NAME}

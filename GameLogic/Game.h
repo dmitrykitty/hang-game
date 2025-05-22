@@ -29,6 +29,7 @@ public:
     //Update the Game
     [[nodiscard]] bool guess(QChar letter);
 
+
     void updateDisplay(QChar letter);
 
     //GameResult
