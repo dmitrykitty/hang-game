@@ -492,7 +492,7 @@ public:
         labelAttemptsLeft->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
         widget = new QWidget(pageGame);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(410, 320, 491, 71));
+        widget->setGeometry(QRect(420, 320, 481, 51));
         horizontalLayout = new QHBoxLayout(widget);
         horizontalLayout->setSpacing(30);
         horizontalLayout->setObjectName("horizontalLayout");
