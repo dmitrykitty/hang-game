@@ -22,8 +22,9 @@ void GameController::startNewGame(const QString &difficulty) {
     game_.setDefinition(newWordDefinition);
 
     emit displayUpdated(game_.getCurrentDisplay());
-    emit descriptionUpdate(game_.getCurrentDisplay());
+    emit descriptionUpdate(newWordDefinition);
     emit imageUpdated(game_.errors());
+    emit attemptsLeft(Game::getMaxError());
 }
 
 void GameController::guessLetter(QChar letter) {

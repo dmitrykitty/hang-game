@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
 
     connect(&controller_, &GameController::displayUpdated,
             this, &MainWindow::updateGameLabel);
+    connect(&controller_, &GameController::descriptionUpdate,
+            this, &MainWindow::updateDescriptionLabel);
     connect(&controller_, &GameController::imageUpdated,
             this, &MainWindow::updateGameImage);
     connect(&controller_, &GameController::gameWon, this, [this]() {
@@ -80,7 +82,7 @@ void MainWindow::difficultyClicked() {
     }
 }
 
-void MainWindow::settingsClicked() {
+void MainWindow::settingsClicked() const {
     ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageSettings);
 }
@@ -88,6 +90,10 @@ void MainWindow::settingsClicked() {
 void MainWindow::showDefinitionClicked() {
     ui->buttonShowDefinition->setEnabled(false);
     ui->labelDefinition->setVisible(true);
+}
+
+void MainWindow::updateDescriptionLabel(const QString &newDescription) {
+    ui->labelDefinition->setText(newDescription);
 }
 
 void MainWindow::onGameLost(const QString& secretWord) {
@@ -160,7 +166,6 @@ void MainWindow::onLetterClicked(QChar ch) {
 }
 
 void MainWindow::finishRound(bool won) const {
-    ui->buttonShowDefinition->setEnabled(true);
     ui->keyboardWidget->setEnabled(false);
     ui->buttonPause->setVisible(false);
     ui->buttonBackToMenu->setVisible(true);
@@ -191,12 +196,11 @@ void MainWindow::updateGameLabel(const QString& newDisplay) {
 
 void MainWindow::beginNewGame() {
     ui->stackedWidget->setCurrentIndex(PageGame);
+    ui->buttonShowDefinition->setEnabled(true);
     ui->buttonPause->setVisible(true);
     ui->buttonBackToMenu->setVisible(false);
     ui->buttonNewGame->setVisible(false);
     ui->labelDefinition->setVisible(false);
-    updateAttemptsLabel(Game::getMaxError());
-
 
     controller_.startNewGame(currentDifficulty_);
 

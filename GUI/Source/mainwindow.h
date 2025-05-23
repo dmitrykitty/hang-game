@@ -3,7 +3,6 @@
 #include <QMainWindow>
 #include <ui_mainwindow.h>
 
-#include "GameLogic/Game.h"
 #include "GameController/GameController.h"
 
 namespace Ui {
@@ -48,7 +47,7 @@ private slots:
 
     void difficultyClicked();
 
-    void settingsClicked();
+    void settingsClicked() const;
 
     void statisticsClicked();
 
@@ -67,6 +66,8 @@ private slots:
     void updateGameImage(int errorCount) const;
 
     void updateGameLabel(const QString &newDisplay);
+
+    void updateDescriptionLabel(const QString &newDescription);
 
     void beginNewGame();
 

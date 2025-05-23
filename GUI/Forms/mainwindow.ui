@@ -245,9 +245,9 @@
         <property name="geometry">
          <rect>
           <x>11</x>
-          <y>51</y>
-          <width>371</width>
-          <height>431</height>
+          <y>21</y>
+          <width>431</width>
+          <height>461</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -269,9 +269,9 @@
        <widget class="QLabel" name="labelWordMask">
         <property name="geometry">
          <rect>
-          <x>410</x>
+          <x>380</x>
           <y>420</y>
-          <width>481</width>
+          <width>511</width>
           <height>81</height>
          </rect>
         </property>
@@ -1003,6 +1003,37 @@
            </property>
           </widget>
          </item>
+         <item row="5" column="8">
+          <widget class="QPushButton" name="button_">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>12</width>
+             <height>12</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Comic Sans MS</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>_</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
        <widget class="QPushButton" name="buttonPause">
@@ -1047,7 +1078,7 @@
          <font>
           <family>Comic Sans MS</family>
           <pointsize>12</pointsize>
-          <bold>false</bold>
+          <bold>true</bold>
          </font>
         </property>
         <property name="layoutDirection">
@@ -1063,9 +1094,9 @@
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>320</y>
-          <width>481</width>
+          <x>440</x>
+          <y>340</y>
+          <width>461</width>
           <height>51</height>
          </rect>
         </property>
@@ -1085,7 +1116,7 @@
             <font>
              <family>Comic Sans MS</family>
              <pointsize>10</pointsize>
-             <bold>false</bold>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -1105,7 +1136,7 @@
             <font>
              <family>Comic Sans MS</family>
              <pointsize>10</pointsize>
-             <bold>false</bold>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -1118,11 +1149,18 @@
        <widget class="QPushButton" name="buttonShowDefinition">
         <property name="geometry">
          <rect>
-          <x>678</x>
-          <y>253</y>
-          <width>221</width>
+          <x>688</x>
+          <y>260</y>
+          <width>211</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Comic Sans MS</family>
+          <pointsize>10</pointsize>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="text">
          <string>SHOW DEFINITION</string>
