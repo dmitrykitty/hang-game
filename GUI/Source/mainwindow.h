@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
     Ui::MainWindow* ui;
     GameController controller_;
-    QString currentDifficulty_ = "Easy";
+    QString currentDifficulty_ = "easy";
 
     enum PageIndex {
         PageMenu = 0,
@@ -59,6 +59,8 @@ private slots:
     void pauseClicked();
 
     void newGameClicked();
+
+    void showDefinitionClicked();
 
     void onLetterClicked(QChar ch);
 

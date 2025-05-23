@@ -27,8 +27,8 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:UNINITIALIZED=C:/Qt/Tools/mingw1310_64/bin/g++.exe
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=C:/Qt/Tools/mingw1310_64/bin/g++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -76,9 +76,6 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
-
-//Enable/Disable output of build database during the build.
-CMAKE_EXPORT_BUILD_DATABASE:BOOL=
 
 //Enable/Disable output of compile commands during generation.
 CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
@@ -279,6 +276,12 @@ HangManQT_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 HangManQT_SOURCE_DIR:STATIC=D:/study/AGH/C_plus_projects/HangManQT
 
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=D:/study/AGH/C_plus_projects/HangManQT/.venv/Scripts/python.exe
+
+//No help, variable specified on the command line.
+Python_EXECUTABLE:UNINITIALIZED=D:/study/AGH/C_plus_projects/HangManQT/.venv/Scripts/python.exe
+
 //Additional directories where find(Qt6 ...) host Qt components
 // are searched
 QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH:STRING=
@@ -398,8 +401,6 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_DLLTOOL
 CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
-//Path to cache edit program executable.
-CMAKE_EDIT_COMMAND:INTERNAL=C:/Program Files/CMake/bin/cmake-gui.exe
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=Unknown
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
@@ -412,8 +413,6 @@ CMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_EXPORT_BUILD_DATABASE
-CMAKE_EXPORT_BUILD_DATABASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS
 CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
@@ -465,8 +464,6 @@ CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
 CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
-//Name of CMakeLists files to read
-CMAKE_LIST_FILE_NAME:INTERNAL=CMakeLists.txt
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
 CMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG
@@ -1442,8 +1439,6 @@ Vulkan_GLSLC_EXECUTABLE-ADVANCED:INTERNAL=1
 Vulkan_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Vulkan_LIBRARY
 Vulkan_LIBRARY-ADVANCED:INTERNAL=1
-//linker supports push/pop state
-_CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=FALSE
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //CMAKE_INSTALL_PREFIX during last run

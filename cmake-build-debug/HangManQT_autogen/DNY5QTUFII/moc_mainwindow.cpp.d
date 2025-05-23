@@ -72,6 +72,7 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/6.9.0/mingw_64/include/QtCore/qmargins.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qmath.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qmetacontainer.h \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/qmetaobject.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qmetatype.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qminmax.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qnamespace.h \
@@ -172,6 +173,11 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/6.9.0/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/QSqlDatabase \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/qtsql-config.h \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/qtsqlexports.h \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QApplication \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGridLayout \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
@@ -455,6 +461,7 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  D:/study/AGH/C_plus_projects/HangManQT/DataBase/DataBaseManager.h \
   D:/study/AGH/C_plus_projects/HangManQT/GameController/GameController.h \
   D:/study/AGH/C_plus_projects/HangManQT/GameLogic/Game.h \
   D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/include/ui_mainwindow.h

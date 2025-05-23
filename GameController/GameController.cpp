@@ -19,8 +19,10 @@ void GameController::startNewGame(const QString &difficulty) {
     }
     game_ = Game();
     game_.setSecretWord(newWord);
+    game_.setDefinition(newWordDefinition);
 
     emit displayUpdated(game_.getCurrentDisplay());
+    emit descriptionUpdate(game_.getCurrentDisplay());
     emit imageUpdated(game_.errors());
 }
 

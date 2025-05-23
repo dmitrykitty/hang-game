@@ -20,6 +20,8 @@ signals:
     /// show new word mask
     void displayUpdated(const QString& newDisplay);
 
+    void descriptionUpdate(const QString& newDescription);
+
     void imageUpdated(int errorCount);
 
     void gameWon();

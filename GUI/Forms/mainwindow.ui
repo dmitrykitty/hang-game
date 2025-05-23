@@ -1037,8 +1037,8 @@
        <widget class="QLabel" name="labelAttemptsLeft">
         <property name="geometry">
          <rect>
-          <x>640</x>
-          <y>90</y>
+          <x>660</x>
+          <y>80</y>
           <width>241</width>
           <height>51</height>
          </rect>
@@ -1060,7 +1060,7 @@
          <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>420</x>
@@ -1114,6 +1114,57 @@
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QPushButton" name="buttonShowDefinition">
+        <property name="geometry">
+         <rect>
+          <x>678</x>
+          <y>253</y>
+          <width>221</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SHOW DEFINITION</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="labelDefinition">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>130</y>
+          <width>461</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Comic Sans MS</family>
+          <pointsize>10</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Shape::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Shadow::Plain</enum>
+        </property>
+        <property name="text">
+         <string>Also called header guard. A pattern using preprocessor directives (#ifndef, #define, #endif) at the top of a header file to prevent multiple inclusions of the same header in one compilation.aaaaaaa fddddddd a A FFFFFF a ssdf qew q ED G ERTGWFW QDWSEF  QFWFG</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::AutoText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="pageStatistics">
@@ -1210,7 +1261,7 @@
      <x>0</x>
      <y>0</y>
      <width>941</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuhangman">

@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(ui->buttonBack, &QPushButton::clicked, this, &MainWindow::backClicked);
     connect(ui->buttonPause, &QPushButton::clicked, this, &MainWindow::pauseClicked);
     connect(ui->buttonBackToMenu, &QPushButton::clicked, this, &MainWindow::backClicked);
+    connect(ui->buttonShowDefinition, &QPushButton::clicked, this, &MainWindow::showDefinitionClicked);
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
@@ -82,6 +83,11 @@ void MainWindow::difficultyClicked() {
 void MainWindow::settingsClicked() {
     ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageSettings);
+}
+
+void MainWindow::showDefinitionClicked() {
+    ui->buttonShowDefinition->setEnabled(false);
+    ui->labelDefinition->setVisible(true);
 }
 
 void MainWindow::onGameLost(const QString& secretWord) {
@@ -154,6 +160,7 @@ void MainWindow::onLetterClicked(QChar ch) {
 }
 
 void MainWindow::finishRound(bool won) const {
+    ui->buttonShowDefinition->setEnabled(true);
     ui->keyboardWidget->setEnabled(false);
     ui->buttonPause->setVisible(false);
     ui->buttonBackToMenu->setVisible(true);
@@ -187,6 +194,7 @@ void MainWindow::beginNewGame() {
     ui->buttonPause->setVisible(true);
     ui->buttonBackToMenu->setVisible(false);
     ui->buttonNewGame->setVisible(false);
+    ui->labelDefinition->setVisible(false);
     updateAttemptsLabel(Game::getMaxError());
 
 
