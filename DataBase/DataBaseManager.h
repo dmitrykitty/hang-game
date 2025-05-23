@@ -9,6 +9,10 @@ public:
     static DataBaseManager& instance();
 
     bool openDatabase(const QString& file = "hangman.db");
+    void createTables();
+
+    QString getWord(const QString &difficulty);
+    void setSettings();
 
 private:
     DataBaseManager() = default;
