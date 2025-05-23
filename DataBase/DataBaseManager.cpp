@@ -18,3 +18,25 @@ bool DataBaseManager::openDatabase(const QString& file) {
     //createTables();
     return true;
 }
+
+WordInfo DataBaseManager::getRandomWord(const QString& difficulty) {
+    QSqlQuery q;
+    q.prepare(R"(
+        SELECT id, word, definition
+        FROM words
+        WHERE difficulty = :lvl
+        ORDER BY RANDOM()
+        LIMIT 1;
+    )");
+    q.bindValue(":lvl", difficulty);
+
+    if (!q.exec() || !q.next()) {
+        qCritical() << "getRandomWord failed:" << q.lastError().text();
+        return {QString(), QString(), -1};
+    }
+
+    int id = q.value(0).toInt();
+    QString w = q.value(1).toString();
+    QString def = q.value(2).toString();
+    return {w, def, id};
+}

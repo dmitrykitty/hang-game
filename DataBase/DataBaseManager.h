@@ -4,6 +4,8 @@
 #include <QString>
 #include <QSqlDatabase>
 
+using WordInfo = std::tuple<QString, QString, int>;
+
 class DataBaseManager {
 public:
     static DataBaseManager& instance();
@@ -11,8 +13,8 @@ public:
     bool openDatabase(const QString& file = "hangman.db");
     void createTables();
 
-    QString getWord(const QString &difficulty);
-    void setSettings();
+    WordInfo getRandomWord(const QString &difficulty);
+    void setDifficulty(QString difficulty);
 
 private:
     DataBaseManager() = default;
@@ -27,6 +29,7 @@ private:
     }
 
     QSqlDatabase db;
+    QString currentDifficulty;
 };
 
 

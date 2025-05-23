@@ -3,7 +3,7 @@
 #include <QObject>
 #include <QString>
 #include "GameLogic/Game.h"
-//#include "DatabaseManager.h"
+#include "DataBase/DataBaseManager.h"
 
 class GameController : public QObject {
     Q_OBJECT
@@ -31,5 +31,5 @@ signals:
 private:
     Game game_;
     QString currentDifficulty_;
-    //DatabaseManager &db_ = DatabaseManager::instance();
+    DataBaseManager& db_ = DataBaseManager::instance();
 };

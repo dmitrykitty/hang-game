@@ -1,4 +1,5 @@
 #include "GameController.h"
+#include "DataBase/DataBaseManager.h"
 #include <QDebug>
 
 GameController::GameController(QObject *parent): QObject(parent){}
@@ -6,7 +7,16 @@ GameController::GameController(QObject *parent): QObject(parent){}
 void GameController::startNewGame(const QString &difficulty) {
     currentDifficulty_ = difficulty;
 
-    QString newWord = "VECTOR";
+    auto wordInfo = DataBaseManager::instance().getRandomWord(difficulty);
+
+    const QString newWord = std::get<0>(wordInfo);
+    const QString newWordDefinition = std::get<1>(wordInfo);
+    const int id = std::get<2>(wordInfo);
+
+    if (newWord.isEmpty() || id < 0) {
+        qWarning() << "No word found for difficulty" << difficulty;
+        return;
+    }
     game_ = Game();
     game_.setSecretWord(newWord);
 
