@@ -49,7 +49,7 @@ private slots:
 
     void settingsClicked() const;
 
-    void statisticsClicked();
+    void statisticsClicked() const;
 
     void exitClicked();
 
@@ -59,21 +59,21 @@ private slots:
 
     void newGameClicked();
 
-    void showDefinitionClicked();
+    void showDefinitionClicked() const;
 
     void onLetterClicked(QChar ch);
 
     void updateGameImage(int errorCount) const;
 
-    void updateGameLabel(const QString &newDisplay);
+    void updateGameLabel(const QString &newDisplay) const;
 
-    void updateDescriptionLabel(const QString &newDescription);
+    void updateDescriptionLabel(const QString &newDescription) const;
 
     void beginNewGame();
 
-    void onGameLost(const QString &secretWord);
+    void onGameLost(const QString &secretWord) const;
 
-    void updateAttemptsLabel(int remaining);
+    void updateAttemptsLabel(int remaining) const;
 
 private:
     //game GUI update

@@ -87,16 +87,16 @@ void MainWindow::settingsClicked() const {
     ui->stackedWidget->setCurrentIndex(PageSettings);
 }
 
-void MainWindow::showDefinitionClicked() {
+void MainWindow::showDefinitionClicked() const {
     ui->buttonShowDefinition->setEnabled(false);
     ui->labelDefinition->setVisible(true);
 }
 
-void MainWindow::updateDescriptionLabel(const QString &newDescription) {
+void MainWindow::updateDescriptionLabel(const QString &newDescription) const {
     ui->labelDefinition->setText(newDescription);
 }
 
-void MainWindow::onGameLost(const QString& secretWord) {
+void MainWindow::onGameLost(const QString& secretWord) const {
     finishRound(false);
     ui->labelWordMask->setText(secretWord);
 }
@@ -139,7 +139,7 @@ void MainWindow::pauseClicked() {
     this->show();
 }
 
-void MainWindow::statisticsClicked() {
+void MainWindow::statisticsClicked() const {
     ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageStatistisc);
 }
@@ -189,7 +189,7 @@ void MainWindow::updateGameImage(int errorCount) const {
     );
 }
 
-void MainWindow::updateGameLabel(const QString& newDisplay) {
+void MainWindow::updateGameLabel(const QString& newDisplay) const {
     ui->labelWordMask->setText(newDisplay);
 }
 
@@ -209,6 +209,6 @@ void MainWindow::beginNewGame() {
         btn->setEnabled(true);
 }
 
-void MainWindow::updateAttemptsLabel(int remaining) {
+void MainWindow::updateAttemptsLabel(int remaining) const {
     ui->labelAttemptsLeft->setText(tr("ATTEMPTS LEFT: ") + QString::number(remaining));
 }

@@ -12,6 +12,7 @@ public:
 
     bool openDatabase(const QString& file = "hangman.db");
     void createTables();
+    bool isWordExists(const QString& word) const;
 
     WordInfo getRandomWord(const QString &difficulty);
     void setDifficulty(QString difficulty);
