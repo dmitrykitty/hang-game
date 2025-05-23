@@ -1,12 +1,12 @@
 # ninja log v6
-19	131	7696608379085534	HangManQT_autogen/timestamp	40ff267a618a6bf6
-19	131	7696608379085534	HangManQT_autogen/mocs_compilation.cpp	40ff267a618a6bf6
-19	131	7696608379085534	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/timestamp	40ff267a618a6bf6
+20	174	7696608804731619	HangManQT_autogen/timestamp	40ff267a618a6bf6
+20	174	7696608804731619	HangManQT_autogen/mocs_compilation.cpp	40ff267a618a6bf6
+20	174	7696608804731619	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/timestamp	40ff267a618a6bf6
 1684	7238	7696606562156416	CMakeFiles/HangManQT.dir/HangManQT_autogen/mocs_compilation.cpp.obj	ea60737d215261d2
 3573	6666	7696605983679946	CMakeFiles/HangManQT.dir/GameLogic/Game.cpp.obj	c682d0bbf0c1db88
-19	131	7696608379085534	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/mocs_compilation.cpp	40ff267a618a6bf6
-3557	9549	7696605983524899	CMakeFiles/HangManQT.dir/main.cpp.obj	455a744263dc94d9
-7238	7804	7696606617693633	HangManQT.exe	a8a8329e0f19083d
+20	174	7696608804731619	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/mocs_compilation.cpp	40ff267a618a6bf6
+175	5761	7696608806287667	CMakeFiles/HangManQT.dir/main.cpp.obj	455a744263dc94d9
+5761	6397	7696608862148610	HangManQT.exe	a8a8329e0f19083d
 3566	9354	7696605983614751	CMakeFiles/HangManQT.dir/GUI/Source/windows/difficultydialog.cpp.obj	e58069cf385dcf9f
 3592	17881	7696605983875096	CMakeFiles/HangManQT.dir/HangManQT_autogen/EWIEGA46WW/qrc_Resources.cpp.obj	9484ea93e12a2fba
 3561	9976	7696605983564732	CMakeFiles/HangManQT.dir/GUI/Source/mainwindow.cpp.obj	382344e3a382f32c
@@ -20,11 +20,5 @@
 5345	5722	7677095289184473	Tmp_autogen/EWIEGA46WW/qrc_Resources.cpp	475eef04839bb040
 3579	8439	7696605983739910	CMakeFiles/HangManQT.dir/GameController/GameController.cpp.obj	9eccb0c872a6c872
 3586	8558	7696605983805096	CMakeFiles/HangManQT.dir/DataBase/DataBaseManager.cpp.obj	98b1cfb7768a4a03
-11	829	7696608801338070	build.ninja	56363b8ba227c908
+11	829	7697176241004840	build.ninja	56363b8ba227c908
 11	829	7696608801304176	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/cmake_install.cmake	56363b8ba227c908
-20	174	7696608804731619	HangManQT_autogen/timestamp	40ff267a618a6bf6
-20	174	7696608804731619	HangManQT_autogen/mocs_compilation.cpp	40ff267a618a6bf6
-20	174	7696608804731619	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/timestamp	40ff267a618a6bf6
-20	174	7696608804731619	D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/mocs_compilation.cpp	40ff267a618a6bf6
-175	5761	7696608806287667	CMakeFiles/HangManQT.dir/main.cpp.obj	455a744263dc94d9
-5761	6397	7696608862148610	HangManQT.exe	a8a8329e0f19083d
