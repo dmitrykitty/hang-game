@@ -13,10 +13,19 @@ CSV_FILES = [
     CSV_DIR / 'easy.csv',
     CSV_DIR / 'medium.csv',
     CSV_DIR / 'hard.csv',
-]
+    ]
 
 conn = sqlite3.connect(DB_PATH)
 cur = conn.cursor()
+
+# 0) Очистка старых данных и сброс автоинкремента
+cur.execute("DELETE FROM stats;")
+cur.execute("DELETE FROM words;")
+# В sqlite_sequence хранятся счётчики AUTOINCREMENT
+cur.execute("DELETE FROM sqlite_sequence WHERE name='words';")
+conn.commit()
+
+# 1) Создание таблиц, если их нет
 cur.executescript("""
 -- table to store each word, its definition, and its difficulty level
 CREATE TABLE IF NOT EXISTS words (
@@ -48,14 +57,8 @@ for csv_path in CSV_FILES:
 
         for row in reader:
             if len(row) < 3:
-                # too few columns -- skip this row
                 continue
 
-
-            # extract fields:
-            #   - first column is the word
-            #   - last column is the difficulty level
-            #   - everything in between is the definition (join them back)
             word = row[0].strip()
             difficulty = row[-1].strip()
             definition = ",".join(col.strip() for col in row[1:-1])
@@ -63,12 +66,11 @@ for csv_path in CSV_FILES:
             if not word or not definition or difficulty not in ('easy', 'medium', 'hard'):
                 continue
 
-            # insert ignoring dublicates
+            # insert ignoring duplicates
             cur.execute("""
                 INSERT OR IGNORE INTO words (word, definition, difficulty)
                 VALUES (?, ?, ?)
             """, (word, definition, difficulty))
-
 
             # add word to stats
             cur.execute("""

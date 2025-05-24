@@ -73,7 +73,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         // Slot 'settingsClicked'
         QtMocHelpers::SlotData<void() const>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'statisticsClicked'
-        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void() const>(5, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'exitClicked'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'backClicked'
@@ -83,7 +83,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         // Slot 'newGameClicked'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'showDefinitionClicked'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void() const>(10, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onLetterClicked'
         QtMocHelpers::SlotData<void(QChar)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QChar, 12 },
@@ -93,21 +93,21 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
             { QMetaType::Int, 14 },
         }}),
         // Slot 'updateGameLabel'
-        QtMocHelpers::SlotData<void(const QString &)>(15, 2, QMC::AccessPrivate, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(const QString &) const>(15, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QString, 16 },
         }}),
         // Slot 'updateDescriptionLabel'
-        QtMocHelpers::SlotData<void(const QString &)>(17, 2, QMC::AccessPrivate, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(const QString &) const>(17, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QString, 18 },
         }}),
         // Slot 'beginNewGame'
         QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onGameLost'
-        QtMocHelpers::SlotData<void(const QString &)>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(const QString &) const>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QString, 21 },
         }}),
         // Slot 'updateAttemptsLabel'
-        QtMocHelpers::SlotData<void(int)>(22, 2, QMC::AccessPrivate, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(int) const>(22, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::Int, 23 },
         }}),
     };
