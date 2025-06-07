@@ -9,10 +9,10 @@ DataBaseManager& DataBaseManager::instance() {
 }
 
 bool DataBaseManager::openDatabase(const QString& file) {
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(file);
-    if (!db.open()) {
-        qCritical() << "DB error:" << db.lastError().text();
+    db_ = QSqlDatabase::addDatabase("QSQLITE");
+    db_.setDatabaseName(file);
+    if (!db_.open()) {
+        qCritical() << "DB error:" << db_.lastError().text();
         return false;
     }
     //createTables();
@@ -52,3 +52,27 @@ WordInfo DataBaseManager::getRandomWord(const QString& difficulty) {
     QString def = q.value(2).toString();
     return {w, def, id};
 }
+
+void DataBaseManager::setDifficulty(const QString& difficulty) {
+    QSqlQuery q(db_);
+    q.prepare(R"(
+        INSERT INTO settings(key, value)
+        VALUES(:k, :v)
+        ON CONFLICT(key) DO UPDATE SET value = :v
+    )");
+    q.bindValue(":k", "difficulty");
+    q.bindValue(":v", difficulty);
+    if (!q.exec())
+        qDebug() << "ERROR writing difficulty:" << q.lastError().text();
+}
+
+QString DataBaseManager::getDifficulty() const {
+    QSqlQuery q(db_);
+    q.prepare("SELECT value FROM settings WHERE key = :k");
+    q.bindValue(":k", "difficulty");
+    if (q.exec() && q.next()) {
+        return q.value(0).toString();
+    }
+    return "Easy";
+}
+

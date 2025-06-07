@@ -186,6 +186,7 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMenu \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMenuBar \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/QSpacerItem \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QStackedWidget \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QVBoxLayout \

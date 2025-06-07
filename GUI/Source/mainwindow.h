@@ -13,7 +13,7 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
     Ui::MainWindow* ui;
     GameController controller_;
-    QString currentDifficulty_ = "easy";
+    QString currentDifficulty_ = "hard";
 
     enum PageIndex {
         PageMenu = 0,

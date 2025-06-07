@@ -19,6 +19,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
@@ -77,9 +78,10 @@ public:
     QLabel *labelAttemptsLeft;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
     QPushButton *buttonBackToMenu;
-    QPushButton *buttonNewGame;
     QPushButton *buttonShowDefinition;
+    QPushButton *buttonNewGame;
     QLabel *labelDefinition;
     QWidget *pageStatistics;
     QLabel *label_2;
@@ -208,7 +210,7 @@ public:
         labelWordMask->setGeometry(QRect(380, 420, 511, 81));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Comic Sans MS")});
-        font2.setPointSize(24);
+        font2.setPointSize(26);
         font2.setBold(false);
         labelWordMask->setFont(font2);
         labelWordMask->setScaledContents(false);
@@ -510,6 +512,10 @@ public:
         horizontalLayout->setSpacing(30);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
         buttonBackToMenu = new QPushButton(layoutWidget1);
         buttonBackToMenu->setObjectName("buttonBackToMenu");
         sizePolicy.setHeightForWidth(buttonBackToMenu->sizePolicy().hasHeightForWidth());
@@ -522,6 +528,12 @@ public:
 
         horizontalLayout->addWidget(buttonBackToMenu);
 
+        buttonShowDefinition = new QPushButton(layoutWidget1);
+        buttonShowDefinition->setObjectName("buttonShowDefinition");
+        buttonShowDefinition->setFont(font5);
+
+        horizontalLayout->addWidget(buttonShowDefinition);
+
         buttonNewGame = new QPushButton(layoutWidget1);
         buttonNewGame->setObjectName("buttonNewGame");
         QSizePolicy sizePolicy6(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
@@ -533,10 +545,6 @@ public:
 
         horizontalLayout->addWidget(buttonNewGame);
 
-        buttonShowDefinition = new QPushButton(pageGame);
-        buttonShowDefinition->setObjectName("buttonShowDefinition");
-        buttonShowDefinition->setGeometry(QRect(688, 260, 211, 51));
-        buttonShowDefinition->setFont(font5);
         labelDefinition = new QLabel(pageGame);
         labelDefinition->setObjectName("labelDefinition");
         labelDefinition->setGeometry(QRect(440, 130, 461, 111));
@@ -551,6 +559,7 @@ public:
         labelDefinition->setTextFormat(Qt::TextFormat::AutoText);
         labelDefinition->setAlignment(Qt::AlignmentFlag::AlignCenter);
         labelDefinition->setWordWrap(true);
+        labelDefinition->setMargin(10);
         stackedWidget->addWidget(pageGame);
         pageStatistics = new QWidget();
         pageStatistics->setObjectName("pageStatistics");
@@ -616,7 +625,7 @@ public:
         buttonStatistics->setText(QCoreApplication::translate("MainWindow", "STATISTICS", nullptr));
         buttonExit->setText(QCoreApplication::translate("MainWindow", "EXIT", nullptr));
         pictureGame->setText(QString());
-        labelWordMask->setText(QCoreApplication::translate("MainWindow", " _ _ _ _ _ _ _ V E C _ _ R", nullptr));
+        labelWordMask->setText(QCoreApplication::translate("MainWindow", "_ _ _ _ _ _ _ _ _ V E C _ _ R", nullptr));
         buttonF->setText(QCoreApplication::translate("MainWindow", "F", nullptr));
         buttonP->setText(QCoreApplication::translate("MainWindow", "P", nullptr));
         buttonY->setText(QCoreApplication::translate("MainWindow", "Y", nullptr));
@@ -647,8 +656,8 @@ public:
         buttonPause->setText(QCoreApplication::translate("MainWindow", "||", nullptr));
         labelAttemptsLeft->setText(QCoreApplication::translate("MainWindow", "ATTEMPTS LEFT: 5", nullptr));
         buttonBackToMenu->setText(QCoreApplication::translate("MainWindow", "BACK TO MENU", nullptr));
-        buttonNewGame->setText(QCoreApplication::translate("MainWindow", "NEW GAME", nullptr));
         buttonShowDefinition->setText(QCoreApplication::translate("MainWindow", "SHOW DEFINITION", nullptr));
+        buttonNewGame->setText(QCoreApplication::translate("MainWindow", "NEW GAME", nullptr));
         labelDefinition->setText(QCoreApplication::translate("MainWindow", "Also called header guard. A pattern using preprocessor directives (#ifndef, #define, #endif) at the top of a header file to prevent multiple inclusions of the same header in one compilation.aaaaaaa fddddddd a A FFFFFF a ssdf qew q ED G ERTGWFW QDWSEF  QFWFG", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "stats", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "settings", nullptr));

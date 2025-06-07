@@ -5,7 +5,7 @@ void Game::setSecretWord(const QString& word) {
     QString mainDisplay;
     mainDisplay.reserve(word.size() * 2 - 1);
     for (int i = 0; i < secretWord_.size(); i++) {
-        mainDisplay += '_';
+        mainDisplay += '*';
         if (i + 1 < secretWord_.size())
             mainDisplay += ' ';
     }
@@ -59,5 +59,5 @@ QString Game::getDefinitionWord() const {
 
 
 bool Game::isWon() const {
-    return !currentDisplay_.contains('_');
+    return !currentDisplay_.contains('*');
 }

@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS words (
     word       TEXT    UNIQUE NOT NULL,
     definition TEXT    NOT NULL,
     difficulty TEXT    CHECK(difficulty IN ('easy','medium','hard')) NOT NULL
+    word_type TEXT CHECK(word_type IN ('default','user')) NOT NULL DEFAULT 'default'
 );
 -- table to track statistics (how many times each word was guessed or failed)
 CREATE TABLE IF NOT EXISTS stats (

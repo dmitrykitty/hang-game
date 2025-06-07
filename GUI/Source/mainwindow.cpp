@@ -12,7 +12,9 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->buttonPause->setVisible(false);
 
     ui->stackedWidget->setCurrentIndex(PageMenu);
-
+    //ui->buttonShowDefinition->setHidden(true);
+    ui->buttonBackToMenu->setHidden(true);
+    ui->buttonNewGame->setHidden(true);
     QPixmap pixMenu(":/img/GUI/Resources/img/mainWindowPNGImage.png");
     ui->pictureMain->setPixmap(pixMenu.scaled(ui->pictureMain->size(), Qt::KeepAspectRatio));
 
