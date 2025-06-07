@@ -10,11 +10,16 @@ class GameController : public QObject {
 
 public:
     explicit GameController(QObject* parent = nullptr);
+    QString getCurrentDifficulty() const { return currentDifficulty_; }
 
 public slots:
-    void startNewGame(const QString& difficulty);
+    void startNewGame();
+
+    void onSettingsDifficulty();
 
     void guessLetter(QChar letter);
+
+    void setCurrentDifficulty(const QString& diff);
 
 signals:
     /// show new word mask
@@ -29,6 +34,8 @@ signals:
     void gameLost(const QString& secretWord);
 
     void attemptsLeft(int remainingAttempts);
+
+    void currentDifficultyChanged(const QString& diff);
 
 private:
     Game game_;

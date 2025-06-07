@@ -35,6 +35,9 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(&controller_, &GameController::attemptsLeft,
             this, &MainWindow::updateAttemptsLabel);
 
+    connect(&controller_, &GameController::currentDifficultyChanged,
+        this, &MainWindow::updateDifficultyLabel);
+
 
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
     connect(ui->buttonSettings, &QPushButton::clicked, this, &MainWindow::settingsClicked);
@@ -44,6 +47,9 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(ui->buttonPause, &QPushButton::clicked, this, &MainWindow::pauseClicked);
     connect(ui->buttonBackToMenu, &QPushButton::clicked, this, &MainWindow::backClicked);
     connect(ui->buttonShowDefinition, &QPushButton::clicked, this, &MainWindow::showDefinitionClicked);
+
+    connect(this, &MainWindow::changeDifficultyRequested,
+            &controller_, &GameController::onSettingsDifficulty);
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
@@ -66,22 +72,7 @@ void MainWindow::startGameClicked() {
 
 
 void MainWindow::difficultyClicked() {
-    DifficultyDialog dlg(this); // tworzymy lokalny dialog, przekazując this jako rodzica
-
-    // uruchamiamy modalnie – funkcja blokuje mainwindow
-    if (dlg.exec() == QDialog::Accepted) {
-        // jak uzytkownic cos wybrał - exec() zwroci Accepted
-
-        QString level = dlg.selectedDifficulty();
-        currentDifficulty_ = level;
-
-
-        // QMessageBox::information(
-        //     this,
-        //     tr("Difficulty set"),
-        //     tr("Chosen level: %1").arg(currentDifficulty)
-        // );
-    }
+    emit changeDifficultyRequested();
 }
 
 void MainWindow::settingsClicked() const {
@@ -94,7 +85,7 @@ void MainWindow::showDefinitionClicked() const {
     ui->labelDefinition->setVisible(true);
 }
 
-void MainWindow::updateDescriptionLabel(const QString &newDescription) const {
+void MainWindow::updateDescriptionLabel(const QString& newDescription) const {
     ui->labelDefinition->setText(newDescription);
 }
 
@@ -204,7 +195,7 @@ void MainWindow::beginNewGame() {
     ui->buttonNewGame->setVisible(false);
     ui->labelDefinition->setVisible(false);
 
-    controller_.startNewGame(currentDifficulty_);
+    controller_.startNewGame();
 
     ui->keyboardWidget->setEnabled(true);
     for (auto* btn: ui->keyboardWidget->findChildren<QPushButton *>())
@@ -213,4 +204,8 @@ void MainWindow::beginNewGame() {
 
 void MainWindow::updateAttemptsLabel(int remaining) const {
     ui->labelAttemptsLeft->setText(tr("ATTEMPTS LEFT: ") + QString::number(remaining));
+}
+
+void MainWindow::updateDifficultyLabel() const {
+    ui->labelCurrentDifficulty->setText(tr("CURRENT DIFFICULTY: ") + controller_.getCurrentDifficulty());
 }

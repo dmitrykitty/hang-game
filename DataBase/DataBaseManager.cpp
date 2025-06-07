@@ -73,6 +73,6 @@ QString DataBaseManager::getDifficulty() const {
     if (q.exec() && q.next()) {
         return q.value(0).toString();
     }
-    return "Easy";
+    return "easy";
 }
 

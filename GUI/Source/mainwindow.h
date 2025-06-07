@@ -13,7 +13,6 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
     Ui::MainWindow* ui;
     GameController controller_;
-    QString currentDifficulty_ = "hard";
 
     enum PageIndex {
         PageMenu = 0,
@@ -40,6 +39,9 @@ public:
 
     ~MainWindow() override;
 
+signals:
+    void changeDifficultyRequested();
+
 private slots:
     //metody nacisku na buttons(wymagające connect)
 
@@ -65,15 +67,17 @@ private slots:
 
     void updateGameImage(int errorCount) const;
 
-    void updateGameLabel(const QString &newDisplay) const;
+    void updateGameLabel(const QString& newDisplay) const;
 
-    void updateDescriptionLabel(const QString &newDescription) const;
+    void updateDescriptionLabel(const QString& newDescription) const;
 
     void beginNewGame();
 
-    void onGameLost(const QString &secretWord) const;
+    void onGameLost(const QString& secretWord) const;
 
     void updateAttemptsLabel(int remaining) const;
+
+    void updateDifficultyLabel() const;
 
 private:
     //game GUI update
@@ -84,5 +88,3 @@ private:
 
     void finishRound(bool won) const;
 };
-
-

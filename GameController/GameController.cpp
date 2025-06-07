@@ -2,27 +2,26 @@
 #include "DataBase/DataBaseManager.h"
 #include <QDebug>
 
+#include "GUI/Source/windows/difficultydialog.h"
+
 GameController::GameController(QObject *parent): QObject(parent){}
 
-void GameController::startNewGame(const QString &difficulty) {
-    currentDifficulty_ = difficulty;
+void GameController::startNewGame() {
+    currentDifficulty_ = db_.getDifficulty();
+    emit currentDifficultyChanged(currentDifficulty_);
 
-    auto wordInfo = DataBaseManager::instance().getRandomWord(difficulty);
-
-    const QString newWord = std::get<0>(wordInfo);
-    const QString newWordDefinition = std::get<1>(wordInfo);
-    const int id = std::get<2>(wordInfo);
+    auto [newWord, newDefinition, id] = db_.getRandomWord(currentDifficulty_);
 
     if (newWord.isEmpty() || id < 0) {
-        qWarning() << "No word found for difficulty" << difficulty;
+        qWarning() << "No word found for difficulty" << currentDifficulty_;
         return;
     }
     game_ = Game();
     game_.setSecretWord(newWord);
-    game_.setDefinition(newWordDefinition);
+    game_.setDefinition(newDefinition);
 
     emit displayUpdated(game_.getCurrentDisplay());
-    emit descriptionUpdate(newWordDefinition);
+    emit descriptionUpdate(newDefinition);
     emit imageUpdated(game_.errors());
     emit attemptsLeft(Game::getMaxError());
 }
@@ -41,5 +40,20 @@ void GameController::guessLetter(QChar letter) {
     if (game_.isWon())   emit gameWon();
     if (game_.isLost()) {
         emit gameLost(game_.getSecretWord());
+    }
+}
+
+void GameController::setCurrentDifficulty(const QString& diff) {
+    currentDifficulty_ = diff;
+}
+
+void GameController::onSettingsDifficulty() {
+    DifficultyDialog dlg;
+    if (dlg.exec() == QDialog::Accepted) {
+        QString diff = dlg.selectedDifficulty();
+        // save to DB
+        db_.setDifficulty(diff);
+        currentDifficulty_ = diff;
+        setCurrentDifficulty(diff);
     }
 }

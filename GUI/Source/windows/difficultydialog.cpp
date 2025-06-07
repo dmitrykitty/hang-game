@@ -14,16 +14,16 @@ DifficultyDialog::~DifficultyDialog() {
 }
 
 void DifficultyDialog::easyClicked() {
-    choice = "Easy";
+    choice = "easy";
     accept();
 }
 
 void DifficultyDialog::mediumClicked() {
-    choice = "Medium";
+    choice = "medium";
     accept();
 }
 
 void DifficultyDialog::hardClicked() {
-    choice = "Hard";
+    choice = "hard";
     accept();
 }
