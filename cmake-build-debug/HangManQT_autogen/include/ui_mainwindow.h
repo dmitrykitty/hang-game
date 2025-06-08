@@ -85,9 +85,11 @@ public:
     QWidget *pageStatistics;
     QLabel *label_2;
     QWidget *pageSettings;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
     QPushButton *buttonDifficulty;
-    QPushButton *buttonResetDict;
     QPushButton *buttonAddWord;
+    QPushButton *buttonResetDict;
     QPushButton *buttonBack;
     QMenuBar *menubar;
     QMenu *menuhangman;
@@ -552,7 +554,7 @@ public:
         labelDefinition->setMargin(10);
         buttonShowDefinition = new QPushButton(pageGame);
         buttonShowDefinition->setObjectName("buttonShowDefinition");
-        buttonShowDefinition->setGeometry(QRect(693, 290, 211, 51));
+        buttonShowDefinition->setGeometry(QRect(683, 290, 221, 51));
         buttonShowDefinition->setFont(font5);
         labelCurrentDifficulty = new QLabel(pageGame);
         labelCurrentDifficulty->setObjectName("labelCurrentDifficulty");
@@ -569,27 +571,40 @@ public:
         stackedWidget->addWidget(pageStatistics);
         pageSettings = new QWidget();
         pageSettings->setObjectName("pageSettings");
-        buttonDifficulty = new QPushButton(pageSettings);
+        widget = new QWidget(pageSettings);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(240, 190, 451, 281));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setSpacing(20);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        buttonDifficulty = new QPushButton(widget);
         buttonDifficulty->setObjectName("buttonDifficulty");
         buttonDifficulty->setEnabled(true);
-        buttonDifficulty->setGeometry(QRect(240, 190, 431, 62));
         sizePolicy1.setHeightForWidth(buttonDifficulty->sizePolicy().hasHeightForWidth());
         buttonDifficulty->setSizePolicy(sizePolicy1);
         buttonDifficulty->setFont(font1);
-        buttonResetDict = new QPushButton(pageSettings);
-        buttonResetDict->setObjectName("buttonResetDict");
-        buttonResetDict->setEnabled(true);
-        buttonResetDict->setGeometry(QRect(240, 270, 431, 62));
-        sizePolicy1.setHeightForWidth(buttonResetDict->sizePolicy().hasHeightForWidth());
-        buttonResetDict->setSizePolicy(sizePolicy1);
-        buttonResetDict->setFont(font1);
-        buttonAddWord = new QPushButton(pageSettings);
+
+        verticalLayout->addWidget(buttonDifficulty);
+
+        buttonAddWord = new QPushButton(widget);
         buttonAddWord->setObjectName("buttonAddWord");
         buttonAddWord->setEnabled(true);
-        buttonAddWord->setGeometry(QRect(240, 350, 431, 62));
         sizePolicy1.setHeightForWidth(buttonAddWord->sizePolicy().hasHeightForWidth());
         buttonAddWord->setSizePolicy(sizePolicy1);
         buttonAddWord->setFont(font1);
+
+        verticalLayout->addWidget(buttonAddWord);
+
+        buttonResetDict = new QPushButton(widget);
+        buttonResetDict->setObjectName("buttonResetDict");
+        buttonResetDict->setEnabled(true);
+        sizePolicy1.setHeightForWidth(buttonResetDict->sizePolicy().hasHeightForWidth());
+        buttonResetDict->setSizePolicy(sizePolicy1);
+        buttonResetDict->setFont(font1);
+
+        verticalLayout->addWidget(buttonResetDict);
+
         stackedWidget->addWidget(pageSettings);
 
         gridLayout->addWidget(stackedWidget, 1, 0, 1, 1);
@@ -621,7 +636,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(buttonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -673,8 +688,8 @@ public:
         labelCurrentDifficulty->setText(QCoreApplication::translate("MainWindow", "CURRENT DIFFICULTY: MEDIUM", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "stats", nullptr));
         buttonDifficulty->setText(QCoreApplication::translate("MainWindow", "SELECT DIFFICULTY", nullptr));
-        buttonResetDict->setText(QCoreApplication::translate("MainWindow", "RESTORE DEFAULT WORDS", nullptr));
         buttonAddWord->setText(QCoreApplication::translate("MainWindow", "ADD CUSTOM WORD", nullptr));
+        buttonResetDict->setText(QCoreApplication::translate("MainWindow", "RESTORE DEFAULT WORDS", nullptr));
         buttonBack->setText(QCoreApplication::translate("MainWindow", "<--", nullptr));
         menuhangman->setTitle(QString());
     } // retranslateUi

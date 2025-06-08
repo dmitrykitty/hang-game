@@ -76,3 +76,15 @@ QString DataBaseManager::getDifficulty() const {
     return "easy";
 }
 
+bool DataBaseManager::wordExists(const QString& word) {
+    QSqlQuery q;
+    q.prepare("SELECT COUNT(1) FROM words WHERE word = :w");
+    q.bindValue(":w", word);
+    if (!q.exec() || !q.next()) {
+        qWarning() << "wordExists query error:" << q.lastError().text();
+        return false;
+    }
+    return q.value(0).toInt() > 0;
+}
+
+

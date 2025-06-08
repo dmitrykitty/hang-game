@@ -3,6 +3,7 @@
 #include <QDebug>
 
 #include "GUI/Source/windows/difficultydialog.h"
+#include "GUI/Source/windows/addcustomworddialog.h"
 
 GameController::GameController(QObject *parent): QObject(parent){}
 
@@ -56,4 +57,12 @@ void GameController::onSettingsDifficulty() {
         currentDifficulty_ = diff;
         setCurrentDifficulty(diff);
     }
+}
+
+void GameController::onAddCustomWord() {
+    AddCustomWordDialog dlg{nullptr};
+    if (dlg.exec() == QDialog::Accepted) {
+        QString w  = dlg.word();
+    }
+
 }

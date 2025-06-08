@@ -16,6 +16,7 @@ public:
     WordInfo getRandomWord(const QString &difficulty);
     void setDifficulty(const QString& difficulty);
     [[nodiscard]] QString getDifficulty() const ;
+    bool wordExists(const QString& word);
 
 private:
     DataBaseManager() = default;

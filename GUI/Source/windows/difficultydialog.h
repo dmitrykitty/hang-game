@@ -18,7 +18,7 @@ public:
 
 private:
     Ui::difficultyDialog *ui;
-    QString choice = "Easy";
+    QString choice = "easy";
 
 private slots:
     void easyClicked();

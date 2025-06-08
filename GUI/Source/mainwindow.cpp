@@ -36,10 +36,12 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
             this, &MainWindow::updateAttemptsLabel);
 
     connect(&controller_, &GameController::currentDifficultyChanged,
-        this, &MainWindow::updateDifficultyLabel);
+            this, &MainWindow::updateDifficultyLabel);
+
 
 
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
+    connect(ui->buttonAddWord, &QPushButton::clicked, this, &MainWindow::addWordClicked);
     connect(ui->buttonSettings, &QPushButton::clicked, this, &MainWindow::settingsClicked);
     connect(ui->buttonStatistics, &QPushButton::clicked, this, &MainWindow::statisticsClicked);
     connect(ui->buttonExit, &QPushButton::clicked, this, &MainWindow::exitClicked);
@@ -50,6 +52,9 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
 
     connect(this, &MainWindow::changeDifficultyRequested,
             &controller_, &GameController::onSettingsDifficulty);
+
+    connect(this, &MainWindow::addWordRequested,
+        &controller_, &GameController::onAddCustomWord);
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
@@ -73,6 +78,10 @@ void MainWindow::startGameClicked() {
 
 void MainWindow::difficultyClicked() {
     emit changeDifficultyRequested();
+}
+
+void MainWindow::addWordClicked() {
+    emit addWordRequested();
 }
 
 void MainWindow::settingsClicked() const {
@@ -207,5 +216,5 @@ void MainWindow::updateAttemptsLabel(int remaining) const {
 }
 
 void MainWindow::updateDifficultyLabel() const {
-    ui->labelCurrentDifficulty->setText(tr("CURRENT DIFFICULTY: ") + controller_.getCurrentDifficulty());
+    ui->labelCurrentDifficulty->setText(tr("CURRENT DIFFICULTY: ") + controller_.getCurrentDifficulty().toUpper());
 }

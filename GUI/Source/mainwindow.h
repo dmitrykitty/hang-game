@@ -42,12 +42,16 @@ public:
 signals:
     void changeDifficultyRequested();
 
+    void addWordRequested();
+
 private slots:
     //metody nacisku na buttons(wymagające connect)
 
     void startGameClicked();
 
     void difficultyClicked();
+
+    void addWordClicked();
 
     void settingsClicked() const;
 
