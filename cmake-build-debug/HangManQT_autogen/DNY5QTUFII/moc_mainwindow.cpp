@@ -42,8 +42,10 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "MainWindow",
         "changeDifficultyRequested",
         "",
+        "addWordRequested",
         "startGameClicked",
         "difficultyClicked",
+        "addWordClicked",
         "settingsClicked",
         "statisticsClicked",
         "exitClicked",
@@ -70,52 +72,56 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     QtMocHelpers::UintData qt_methods {
         // Signal 'changeDifficultyRequested'
         QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        // Signal 'addWordRequested'
+        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'startGameClicked'
-        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'difficultyClicked'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'difficultyClicked'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'addWordClicked'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'settingsClicked'
-        QtMocHelpers::SlotData<void() const>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void() const>(7, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'statisticsClicked'
-        QtMocHelpers::SlotData<void() const>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'exitClicked'
-        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'backClicked'
         QtMocHelpers::SlotData<void() const>(8, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'pauseClicked'
+        // Slot 'exitClicked'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'backClicked'
+        QtMocHelpers::SlotData<void() const>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'pauseClicked'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'newGameClicked'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'showDefinitionClicked'
-        QtMocHelpers::SlotData<void() const>(11, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void() const>(13, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onLetterClicked'
-        QtMocHelpers::SlotData<void(QChar)>(12, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QChar, 13 },
+        QtMocHelpers::SlotData<void(QChar)>(14, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QChar, 15 },
         }}),
         // Slot 'updateGameImage'
-        QtMocHelpers::SlotData<void(int) const>(14, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 15 },
+        QtMocHelpers::SlotData<void(int) const>(16, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 17 },
         }}),
         // Slot 'updateGameLabel'
-        QtMocHelpers::SlotData<void(const QString &) const>(16, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 17 },
-        }}),
-        // Slot 'updateDescriptionLabel'
         QtMocHelpers::SlotData<void(const QString &) const>(18, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QString, 19 },
         }}),
+        // Slot 'updateDescriptionLabel'
+        QtMocHelpers::SlotData<void(const QString &) const>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 21 },
+        }}),
         // Slot 'beginNewGame'
-        QtMocHelpers::SlotData<void()>(20, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onGameLost'
-        QtMocHelpers::SlotData<void(const QString &) const>(21, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 22 },
+        QtMocHelpers::SlotData<void(const QString &) const>(23, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 24 },
         }}),
         // Slot 'updateAttemptsLabel'
-        QtMocHelpers::SlotData<void(int) const>(23, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 24 },
+        QtMocHelpers::SlotData<void(int) const>(25, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 26 },
         }}),
         // Slot 'updateDifficultyLabel'
-        QtMocHelpers::SlotData<void() const>(25, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void() const>(27, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -140,28 +146,32 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->changeDifficultyRequested(); break;
-        case 1: _t->startGameClicked(); break;
-        case 2: _t->difficultyClicked(); break;
-        case 3: _t->settingsClicked(); break;
-        case 4: _t->statisticsClicked(); break;
-        case 5: _t->exitClicked(); break;
-        case 6: _t->backClicked(); break;
-        case 7: _t->pauseClicked(); break;
-        case 8: _t->newGameClicked(); break;
-        case 9: _t->showDefinitionClicked(); break;
-        case 10: _t->onLetterClicked((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
-        case 11: _t->updateGameImage((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 12: _t->updateGameLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 13: _t->updateDescriptionLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 14: _t->beginNewGame(); break;
-        case 15: _t->onGameLost((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 16: _t->updateAttemptsLabel((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 17: _t->updateDifficultyLabel(); break;
+        case 1: _t->addWordRequested(); break;
+        case 2: _t->startGameClicked(); break;
+        case 3: _t->difficultyClicked(); break;
+        case 4: _t->addWordClicked(); break;
+        case 5: _t->settingsClicked(); break;
+        case 6: _t->statisticsClicked(); break;
+        case 7: _t->exitClicked(); break;
+        case 8: _t->backClicked(); break;
+        case 9: _t->pauseClicked(); break;
+        case 10: _t->newGameClicked(); break;
+        case 11: _t->showDefinitionClicked(); break;
+        case 12: _t->onLetterClicked((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
+        case 13: _t->updateGameImage((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 14: _t->updateGameLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 15: _t->updateDescriptionLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 16: _t->beginNewGame(); break;
+        case 17: _t->onGameLost((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 18: _t->updateAttemptsLabel((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 19: _t->updateDifficultyLabel(); break;
         default: ;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
         if (QtMocHelpers::indexOfMethod<void (MainWindow::*)()>(_a, &MainWindow::changeDifficultyRequested, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (MainWindow::*)()>(_a, &MainWindow::addWordRequested, 1))
             return;
     }
 }
@@ -185,14 +195,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 20)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 20;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 20)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 18;
+        _id -= 20;
     }
     return _id;
 }
@@ -201,5 +211,11 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void MainWindow::changeDifficultyRequested()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void MainWindow::addWordRequested()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }
 QT_WARNING_POP

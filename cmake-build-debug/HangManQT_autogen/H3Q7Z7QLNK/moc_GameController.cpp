@@ -55,6 +55,7 @@ template <> constexpr inline auto GameController::qt_create_metaobjectdata<qt_me
         "diff",
         "startNewGame",
         "onSettingsDifficulty",
+        "onAddCustomWord",
         "guessLetter",
         "letter",
         "setCurrentDifficulty"
@@ -91,12 +92,14 @@ template <> constexpr inline auto GameController::qt_create_metaobjectdata<qt_me
         QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'onSettingsDifficulty'
         QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'onAddCustomWord'
+        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'guessLetter'
-        QtMocHelpers::SlotData<void(QChar)>(17, 2, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::QChar, 18 },
+        QtMocHelpers::SlotData<void(QChar)>(18, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QChar, 19 },
         }}),
         // Slot 'setCurrentDifficulty'
-        QtMocHelpers::SlotData<void(const QString &)>(19, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(const QString &)>(20, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QString, 14 },
         }}),
     };
@@ -131,8 +134,9 @@ void GameController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 6: _t->currentDifficultyChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 7: _t->startNewGame(); break;
         case 8: _t->onSettingsDifficulty(); break;
-        case 9: _t->guessLetter((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
-        case 10: _t->setCurrentDifficulty((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 9: _t->onAddCustomWord(); break;
+        case 10: _t->guessLetter((*reinterpret_cast< std::add_pointer_t<QChar>>(_a[1]))); break;
+        case 11: _t->setCurrentDifficulty((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -173,14 +177,14 @@ int GameController::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }

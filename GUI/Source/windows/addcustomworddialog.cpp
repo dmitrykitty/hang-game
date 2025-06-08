@@ -1,13 +1,22 @@
 #include "addcustomworddialog.h"
+#include <QDialogButtonBox>
 #include "ui_addcustomworddialog.h"
-#include <QRegularExpression>
-
+#include <QRegularExpressionValidator>
 #include "DataBase/DataBaseManager.h"
+
 
 AddCustomWordDialog::AddCustomWordDialog(QWidget* parent)
     : QDialog(parent)
       , ui(new Ui::AddCustomWordDialog) {
     ui->setupUi(this);
+    ui->groupBox->setStyleSheet("QGroupBox { border: none; }");
+
+    // auto re = QRegularExpression("^[A-Za-z_]+$");
+    // ui->lineEditWord->setValidator(new QRegularExpressionValidator(re, this));
+
+    connect(ui->lineEditWord, &QLineEdit::textChanged,
+           this, &AddCustomWordDialog::onWordChanged);
+
 }
 
 AddCustomWordDialog::~AddCustomWordDialog() {
@@ -17,8 +26,8 @@ AddCustomWordDialog::~AddCustomWordDialog() {
 void AddCustomWordDialog::onWordChanged(const QString& text) {
     QString w = text.trimmed();
 
-    if (w.length() < 4) {
-        ui->labelWordError->setText("Min 4 letters");
+    if (w.length() < 4 or w.length() > 16 ) {
+        ui->labelWordError->setText("Word length from 4 to 16 letters");
         ui->labelWordError->setStyleSheet("color:red");
         ui->labelWordError->show();
         validWord = false;
@@ -31,7 +40,7 @@ void AddCustomWordDialog::onWordChanged(const QString& text) {
         ui->labelWordError->show();
         validWord = false;
     } else {
-        ui->labelWordError->hide();
+        ui->labelWordError->setText(" ");
         validWord = true;
     }
 }

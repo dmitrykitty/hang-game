@@ -636,7 +636,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(buttonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

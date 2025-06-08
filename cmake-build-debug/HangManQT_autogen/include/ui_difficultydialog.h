@@ -30,19 +30,28 @@ public:
     {
         if (difficultyDialog->objectName().isEmpty())
             difficultyDialog->setObjectName("difficultyDialog");
-        difficultyDialog->resize(287, 253);
+        difficultyDialog->resize(360, 360);
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(difficultyDialog->sizePolicy().hasHeightForWidth());
+        difficultyDialog->setSizePolicy(sizePolicy);
+        difficultyDialog->setMinimumSize(QSize(360, 360));
+        difficultyDialog->setMaximumSize(QSize(360, 360));
         verticalLayout_2 = new QVBoxLayout(difficultyDialog);
+        verticalLayout_2->setSpacing(20);
         verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_2->setContentsMargins(20, 20, 20, 20);
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(15);
+        verticalLayout->setSpacing(20);
         verticalLayout->setObjectName("verticalLayout");
         buttonEasy = new QPushButton(difficultyDialog);
         buttonEasy->setObjectName("buttonEasy");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(buttonEasy->sizePolicy().hasHeightForWidth());
-        buttonEasy->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(buttonEasy->sizePolicy().hasHeightForWidth());
+        buttonEasy->setSizePolicy(sizePolicy1);
         QFont font;
         font.setFamilies({QString::fromUtf8("Comic Sans MS")});
         font.setPointSize(12);
@@ -53,16 +62,17 @@ public:
 
         buttonMedium = new QPushButton(difficultyDialog);
         buttonMedium->setObjectName("buttonMedium");
-        sizePolicy.setHeightForWidth(buttonMedium->sizePolicy().hasHeightForWidth());
-        buttonMedium->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(buttonMedium->sizePolicy().hasHeightForWidth());
+        buttonMedium->setSizePolicy(sizePolicy1);
         buttonMedium->setFont(font);
+        buttonMedium->setIconSize(QSize(20, 20));
 
         verticalLayout->addWidget(buttonMedium);
 
         buttonHard = new QPushButton(difficultyDialog);
         buttonHard->setObjectName("buttonHard");
-        sizePolicy.setHeightForWidth(buttonHard->sizePolicy().hasHeightForWidth());
-        buttonHard->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(buttonHard->sizePolicy().hasHeightForWidth());
+        buttonHard->setSizePolicy(sizePolicy1);
         buttonHard->setFont(font);
 
         verticalLayout->addWidget(buttonHard);
