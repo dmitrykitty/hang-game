@@ -19,20 +19,8 @@ bool DataBaseManager::openDatabase(const QString& file) {
     return true;
 }
 
-bool DataBaseManager::isWordExists(const QString& word) const {
-    QSqlQuery q;
-    q.prepare("SELECT COUNT(1) FROM words WHERE word = :w;");
-    q.bindValue(":w", word);
-    if (!q.exec() || !q.next()) {
-        qWarning() << "wordExists query error:" << q.lastError().text();
-        return false;
-    }
-    return (q.value(0).toInt() > 0);
-}
-
-
 WordInfo DataBaseManager::getRandomWord(const QString& difficulty) {
-    QSqlQuery q;
+    QSqlQuery q(db_);
     q.prepare(R"(
         SELECT id, word, definition
         FROM words
@@ -53,7 +41,7 @@ WordInfo DataBaseManager::getRandomWord(const QString& difficulty) {
     return {w, def, id};
 }
 
-void DataBaseManager::setDifficulty(const QString& difficulty) {
+void DataBaseManager::setDifficulty(const QString& difficulty) const {
     QSqlQuery q(db_);
     q.prepare(R"(
         INSERT INTO settings(key, value)
@@ -76,8 +64,8 @@ QString DataBaseManager::getDifficulty() const {
     return "easy";
 }
 
-bool DataBaseManager::wordExists(const QString& word) {
-    QSqlQuery q;
+bool DataBaseManager::wordExists(const QString& word) const {
+    QSqlQuery q(db_);
     q.prepare("SELECT COUNT(1) FROM words WHERE word = :w");
     q.bindValue(":w", word);
     if (!q.exec() || !q.next()) {
@@ -87,4 +75,32 @@ bool DataBaseManager::wordExists(const QString& word) {
     return q.value(0).toInt() > 0;
 }
 
+bool DataBaseManager::addUserWord(const QString& word, const QString& def, const QString& diff) const {
+    QSqlQuery q(db_);
+    q.prepare(R"(
+        INSERT INTO words(word, definition, difficulty, word_type)
+        VALUES(:w,:d,:diff,'user')
+    )");
+    q.bindValue(":w", word);
+    q.bindValue(":d", def);
+    q.bindValue(":diff", diff);
 
+    if (!q.exec()) {
+        qCritical() << "addUserWord failed:" << q.lastError().text();
+        return false;
+    }
+
+    QSqlQuery q2(db_);
+    q2.prepare(R"(
+        INSERT OR IGNORE INTO stats (word_id)
+        VALUES ((SELECT id FROM words WHERE word = :w));
+    )");
+    q2.bindValue(":w", word);
+
+    if (!q2.exec()) {
+        qCritical() << "addUserWord stats init failed:" << q2.lastError().text();
+        return false;
+    }
+
+    return true;
+}

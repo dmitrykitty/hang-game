@@ -17,6 +17,18 @@ AddCustomWordDialog::AddCustomWordDialog(QWidget* parent)
     connect(ui->lineEditWord, &QLineEdit::textChanged,
             this, &AddCustomWordDialog::onWordChanged);
 
+    connect(ui->plainTextEditDefinition, &QPlainTextEdit::textChanged,
+            this, &AddCustomWordDialog::onDefinitionChanged);
+    connect(ui->radioButtonHard,   &QRadioButton::toggled,
+        this, &AddCustomWordDialog::onDifficultyChanged);
+
+    // ADD
+    connect(ui->pushButtonAdd, &QPushButton::clicked,
+            this, &QDialog::accept);
+    // CANCEL
+    connect(ui->pushButtonCancel, &QPushButton::clicked,
+            this, &QDialog::reject);
+
     ui->pushButtonAdd->setEnabled(false);
 }
 
@@ -33,16 +45,19 @@ QString AddCustomWordDialog::difficulty() const {
 }
 
 QString AddCustomWordDialog::definition() const {
-    return ui->labelDefinition->text().trimmed();
+    return ui->plainTextEditDefinition->toPlainText().trimmed();
 }
 
 
 QString AddCustomWordDialog::word() const {
-    return ui->labelWord->text().trimmed();
+    return ui->lineEditWord->text().trimmed();
 }
 
 bool AddCustomWordDialog::validateAll() const {
-    return validDefinition && validWord;
+    return validDefinition && validWord
+           && (ui->radioButtonEasy->isChecked()
+               || ui->radioButtonMedium->isChecked()
+               || ui->radioButtonHard->isChecked());
 }
 
 
@@ -82,3 +97,8 @@ void AddCustomWordDialog::onDefinitionChanged() {
     }
     ui->pushButtonAdd->setEnabled(validateAll());
 }
+
+void AddCustomWordDialog::onDifficultyChanged() {
+    ui->pushButtonAdd->setEnabled(validateAll());
+}
+

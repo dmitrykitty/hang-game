@@ -11,17 +11,22 @@ public:
     static DataBaseManager& instance();
 
     bool openDatabase(const QString& file = "hangman.db");
-    [[nodiscard]] bool isWordExists(const QString& word) const;
 
-    WordInfo getRandomWord(const QString &difficulty);
-    void setDifficulty(const QString& difficulty);
-    [[nodiscard]] QString getDifficulty() const ;
-    bool wordExists(const QString& word);
+    WordInfo getRandomWord(const QString& difficulty);
+
+    void setDifficulty(const QString& difficulty) const;
+
+    [[nodiscard]] QString getDifficulty() const;
+
+    [[nodiscard]] bool wordExists(const QString& word) const;
+
+    bool addUserWord(const QString& word, const QString& def, const QString& diff) const;
 
 private:
     DataBaseManager() = default;
 
     DataBaseManager(const DataBaseManager&) = delete;
+
     DataBaseManager& operator=(const DataBaseManager&) = delete;
 
     ~DataBaseManager() {

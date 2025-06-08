@@ -21,6 +21,7 @@ public:
 private slots:
     void onWordChanged(const QString& text);
     void onDefinitionChanged();
+    void onDifficultyChanged();
     bool validateAll() const;
 
 private:

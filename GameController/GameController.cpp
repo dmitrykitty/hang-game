@@ -63,6 +63,12 @@ void GameController::onAddCustomWord() {
     AddCustomWordDialog dlg{nullptr};
     if (dlg.exec() == QDialog::Accepted) {
         QString w  = dlg.word();
+        QString def = dlg.definition();
+        QString diff = dlg.difficulty();
+
+        if (!db_.addUserWord(w, def, diff)) {
+            qWarning() << "Failed to insert custom word";
+        }
     }
 
 }
