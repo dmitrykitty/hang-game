@@ -14,10 +14,14 @@ public:
 
     ~AddCustomWordDialog() override;
 
-    QString word() const;
+    [[nodiscard]] QString word() const;
+    QString definition() const;
+    QString difficulty() const;
 
 private slots:
     void onWordChanged(const QString& text);
+    void onDefinitionChanged();
+    bool validateAll() const;
 
 private:
     Ui::AddCustomWordDialog* ui;

@@ -15,18 +15,41 @@ AddCustomWordDialog::AddCustomWordDialog(QWidget* parent)
     // ui->lineEditWord->setValidator(new QRegularExpressionValidator(re, this));
 
     connect(ui->lineEditWord, &QLineEdit::textChanged,
-           this, &AddCustomWordDialog::onWordChanged);
+            this, &AddCustomWordDialog::onWordChanged);
 
+    ui->pushButtonAdd->setEnabled(false);
 }
 
 AddCustomWordDialog::~AddCustomWordDialog() {
     delete ui;
 }
 
+QString AddCustomWordDialog::difficulty() const {
+    if (ui->radioButtonEasy->isChecked())
+        return "easy";
+    if (ui->radioButtonMedium->isChecked())
+        return "medium";
+    return "hard";
+}
+
+QString AddCustomWordDialog::definition() const {
+    return ui->labelDefinition->text().trimmed();
+}
+
+
+QString AddCustomWordDialog::word() const {
+    return ui->labelWord->text().trimmed();
+}
+
+bool AddCustomWordDialog::validateAll() const {
+    return validDefinition && validWord;
+}
+
+
 void AddCustomWordDialog::onWordChanged(const QString& text) {
     QString w = text.trimmed();
 
-    if (w.length() < 4 or w.length() > 16 ) {
+    if (w.length() < 4 or w.length() > 16) {
         ui->labelWordError->setText("Word length from 4 to 16 letters");
         ui->labelWordError->setStyleSheet("color:red");
         ui->labelWordError->show();
@@ -43,8 +66,19 @@ void AddCustomWordDialog::onWordChanged(const QString& text) {
         ui->labelWordError->setText(" ");
         validWord = true;
     }
+    ui->pushButtonAdd->setEnabled(validateAll());
 }
 
-QString AddCustomWordDialog::word() const{
-    return ui->labelWord->text().trimmed();
+void AddCustomWordDialog::onDefinitionChanged() {
+    QString def = ui->plainTextEditDefinition->toPlainText().trimmed();
+    if (def.length() < 15) {
+        ui->labelDefinitionError->setText("Min 15 characters");
+        ui->labelDefinitionError->setStyleSheet("color:red");
+        ui->labelDefinitionError->show();
+        validDefinition = false;
+    } else {
+        ui->labelDefinitionError->setText(" ");
+        validDefinition = true;
+    }
+    ui->pushButtonAdd->setEnabled(validateAll());
 }
