@@ -75,5 +75,9 @@ void GameController::onAddCustomWord() const {
             qWarning() << "Failed to insert custom word";
         }
     }
+}
 
+void GameController::removeAllUserWords() {
+    bool ok = db_.deleteAllUserWords();
+    emit userWordsRemoved(ok);
 }

@@ -24,9 +24,9 @@ public:
 
     bool deleteAllUserWords();
 
-    void updateStats(int wordId, bool guessed);
-
-    void updateTop5();
+    // void updateStats(int wordId, bool guessed);
+    //
+    // void updateTop5();
 
 private:
     DataBaseManager() = default;

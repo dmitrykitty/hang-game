@@ -83,6 +83,8 @@ private slots:
 
     void updateDifficultyLabel() const;
 
+    void onUserWordsRemoved(bool success);
+
 private:
     //game GUI update
 

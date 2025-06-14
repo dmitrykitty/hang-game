@@ -39,7 +39,10 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(&controller_, &GameController::currentDifficultyChanged,
             this, &MainWindow::updateDifficultyLabel);
 
-
+    connect(ui->buttonResetDict, &QPushButton::clicked,
+            &controller_, &GameController::removeAllUserWords);
+    connect(&controller_, &GameController::userWordsRemoved,
+        this, &MainWindow::onUserWordsRemoved);
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
     connect(ui->buttonAddWord, &QPushButton::clicked, this, &MainWindow::addWordClicked);
     connect(ui->buttonSettings, &QPushButton::clicked, this, &MainWindow::settingsClicked);
@@ -54,7 +57,7 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
             &controller_, &GameController::onSettingsDifficulty);
 
     connect(this, &MainWindow::addWordRequested,
-        &controller_, &GameController::onAddCustomWord);
+            &controller_, &GameController::onAddCustomWord);
 
     auto buttons = ui->keyboardWidget->findChildren<QPushButton *>();
     for (auto* btn: buttons) {
@@ -110,12 +113,16 @@ void MainWindow::onGameLost(const QString& secretWord) const {
 
 
 void MainWindow::exitClicked() {
-    auto reply = QMessageBox::question(
-        this,
-        tr("Exit"),
-        tr("Really quit?"),
-        QMessageBox::Yes | QMessageBox::No);
+    QMessageBox msg(this);
+    msg.setFont(QFont("Comic Sans MS", 12));
+    msg.setIcon(QMessageBox::Question);
+    msg.setWindowTitle(tr("Exit"));
+    msg.setText(tr("Really quit?"));
 
+    msg.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msg.setDefaultButton(QMessageBox::No);
+
+    int reply = msg.exec();
     if (reply == QMessageBox::Yes) {
         QApplication::quit();
     }
@@ -133,16 +140,21 @@ void MainWindow::newGameClicked() {
 
 
 void MainWindow::pauseClicked() {
-    auto reply = QMessageBox::question(
-        this,
-        tr("BackToMenu"),
-        tr("Are you sure you want to got to menu?"),
-        QMessageBox::Yes | QMessageBox::No);
+    QMessageBox msg(this);
+    msg.setFont(QFont("Comic Sans MS", 12));
+    msg.setIcon(QMessageBox::Question);
+    msg.setWindowTitle(tr("Back To Menu"));
+    msg.setText(tr("Are you sure you want to go to the menu?"));
 
+    msg.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msg.setDefaultButton(QMessageBox::No);
+
+    int reply = msg.exec();
     if (reply == QMessageBox::Yes) {
         ui->buttonPause->setVisible(false);
         ui->stackedWidget->setCurrentIndex(PageMenu);
     }
+
     this->show();
 }
 
@@ -218,4 +230,17 @@ void MainWindow::updateAttemptsLabel(int remaining) const {
 
 void MainWindow::updateDifficultyLabel() const {
     ui->labelCurrentDifficulty->setText(tr("CURRENT DIFFICULTY: ") + controller_.getCurrentDifficulty().toUpper());
+}
+
+void MainWindow::onUserWordsRemoved(bool success) {
+    QMessageBox msg;
+    msg.setFont(QFont("Comic Sans MS", 12));
+    msg.setIcon(success ? QMessageBox::Information
+                       : QMessageBox::Warning);
+    msg.setWindowTitle(success ? tr("Dictionary Cleared")
+                               : tr("Error"));
+    msg.setText(success
+                ? tr("All user-added words have been removed.")
+                : tr("Failed to remove user-added words."));
+    msg.exec();
 }

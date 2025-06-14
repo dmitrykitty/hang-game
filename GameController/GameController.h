@@ -25,6 +25,8 @@ public slots:
 
     void setCurrentDifficulty(const QString& diff);
 
+    void removeAllUserWords();
+
 signals:
     /// show new word mask
     void displayUpdated(const QString& newDisplay);
@@ -40,6 +42,8 @@ signals:
     void attemptsLeft(int remainingAttempts);
 
     void currentDifficultyChanged(const QString& diff);
+
+    void userWordsRemoved(bool success);
 
 
 private:

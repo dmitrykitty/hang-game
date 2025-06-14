@@ -128,31 +128,31 @@ bool DataBaseManager::deleteAllUserWords() {
     return true;
 }
 
-void DataBaseManager::updateStats(int wordId, bool guessed) {
-    QSqlQuery q;
-    if (guessed) {
-        q.prepare("UPDATE stats SET guessed_cnt = guessed_cnt + 1 WHERE word_d = :id;");
-    } else {
-        q.prepare("UPDATE stats SET failed_cnt = failed_cnt + 1 WHERE word_d = :id;");
-    }
-    q.bindValue(":id", wordId);
-    q.exec();
-
-    updateTop5();
-}
-
-void DataBaseManager::updateTop5() {
-    QSqlQuery clear;
-    clear.exec("DELETE FROM top5");
-
-    QSqlQuery insert;
-    insert.prepare(R"(
-        INSERT INTO top5(word, guessed_cnt, failed_cnt)
-        SELECT w.word, s.guessed_cnt, s.failed_cnt
-        FROM stats s
-        JOIN words w ON s.word_id = w.id
-        ORDER BY s.failed_cnt DESC
-        LIMIT 5
-    )");
-    insert.exec();
-}
+// void DataBaseManager::updateStats(int wordId, bool guessed) {
+//     QSqlQuery q;
+//     if (guessed) {
+//         q.prepare("UPDATE stats SET guessed_cnt = guessed_cnt + 1 WHERE word_d = :id;");
+//     } else {
+//         q.prepare("UPDATE stats SET failed_cnt = failed_cnt + 1 WHERE word_d = :id;");
+//     }
+//     q.bindValue(":id", wordId);
+//     q.exec();
+//
+//     updateTop5();
+// }
+//
+// void DataBaseManager::updateTop5() {
+//     QSqlQuery clear;
+//     clear.exec("DELETE FROM top5");
+//
+//     QSqlQuery insert;
+//     insert.prepare(R"(
+//         INSERT INTO top5(word, guessed_cnt, failed_cnt)
+//         SELECT w.word, s.guessed_cnt, s.failed_cnt
+//         FROM stats s
+//         JOIN words w ON s.word_id = w.id
+//         ORDER BY s.failed_cnt DESC
+//         LIMIT 5
+//     )");
+//     insert.exec();
+// }
