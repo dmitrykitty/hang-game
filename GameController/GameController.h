@@ -4,6 +4,7 @@
 #include <QString>
 #include "GameLogic/Game.h"
 #include "DataBase/DataBaseManager.h"
+#include <QSqlQueryModel>
 
 class GameController : public QObject {
     Q_OBJECT
@@ -11,14 +12,14 @@ class GameController : public QObject {
 public:
     explicit GameController(QObject* parent = nullptr);
 
-    QString getCurrentDifficulty() const { return currentDifficulty_; }
+    [[nodiscard]] QString getCurrentDifficulty() const { return currentDifficulty_; }
 
 public slots:
     void startNewGame();
 
     void onSettingsDifficulty();
 
-    void onAddCustomWord();
+    void onAddCustomWord() const;
 
     void guessLetter(QChar letter);
 
@@ -40,8 +41,11 @@ signals:
 
     void currentDifficultyChanged(const QString& diff);
 
+
 private:
     Game game_;
     QString currentDifficulty_;
     DataBaseManager& db_ = DataBaseManager::instance();
+    int currentWordId_ = -1;
 };
+

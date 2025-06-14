@@ -104,3 +104,55 @@ bool DataBaseManager::addUserWord(const QString& word, const QString& def, const
 
     return true;
 }
+
+bool DataBaseManager::deleteAllUserWords() {
+    QSqlQuery q;
+
+    if (!q.exec(R"(
+        DELETE FROM stats
+         WHERE word_id IN (
+             SELECT id FROM words WHERE word_type='user'
+         );
+    )")) {
+        qCritical() << "deleteAllUserWords (stats) failed:" << q.lastError().text();
+        return false;
+    }
+
+    if (!q.exec(R"(
+        DELETE FROM words WHERE word_type='user';
+    )")) {
+        qCritical() << "deleteAllUserWords (words) failed:" << q.lastError().text();
+        return false;
+    }
+
+    return true;
+}
+
+void DataBaseManager::updateStats(int wordId, bool guessed) {
+    QSqlQuery q;
+    if (guessed) {
+        q.prepare("UPDATE stats SET guessed_cnt = guessed_cnt + 1 WHERE word_d = :id;");
+    } else {
+        q.prepare("UPDATE stats SET failed_cnt = failed_cnt + 1 WHERE word_d = :id;");
+    }
+    q.bindValue(":id", wordId);
+    q.exec();
+
+    updateTop5();
+}
+
+void DataBaseManager::updateTop5() {
+    QSqlQuery clear;
+    clear.exec("DELETE FROM top5");
+
+    QSqlQuery insert;
+    insert.prepare(R"(
+        INSERT INTO top5(word, guessed_cnt, failed_cnt)
+        SELECT w.word, s.guessed_cnt, s.failed_cnt
+        FROM stats s
+        JOIN words w ON s.word_id = w.id
+        ORDER BY s.failed_cnt DESC
+        LIMIT 5
+    )");
+    insert.exec();
+}

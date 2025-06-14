@@ -8,6 +8,7 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/H3Q7Z
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qarraydata.h \
@@ -121,7 +122,9 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/H3Q7Z
   C:/Qt/6.9.0/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/QSqlDatabase \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/QSqlQueryModel \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/qsqlquerymodel.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qtsql-config.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qtsqlglobal.h \

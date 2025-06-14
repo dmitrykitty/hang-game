@@ -47,7 +47,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "difficultyClicked",
         "addWordClicked",
         "settingsClicked",
-        "statisticsClicked",
+        "aboutClicked",
         "exitClicked",
         "backClicked",
         "pauseClicked",
@@ -82,7 +82,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'settingsClicked'
         QtMocHelpers::SlotData<void() const>(7, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'statisticsClicked'
+        // Slot 'aboutClicked'
         QtMocHelpers::SlotData<void() const>(8, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'exitClicked'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
@@ -151,7 +151,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->difficultyClicked(); break;
         case 4: _t->addWordClicked(); break;
         case 5: _t->settingsClicked(); break;
-        case 6: _t->statisticsClicked(); break;
+        case 6: _t->aboutClicked(); break;
         case 7: _t->exitClicked(); break;
         case 8: _t->backClicked(); break;
         case 9: _t->pauseClicked(); break;

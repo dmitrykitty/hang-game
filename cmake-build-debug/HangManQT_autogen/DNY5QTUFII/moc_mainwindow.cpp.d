@@ -11,6 +11,7 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/6.9.0/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/q23utility.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+  C:/Qt/6.9.0/mingw_64/include/QtCore/qabstractitemmodel.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.9.0/mingw_64/include/QtCore/qarraydata.h \
@@ -174,12 +175,15 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/QSqlDatabase \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/QSqlQueryModel \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qsqldatabase.h \
+  C:/Qt/6.9.0/mingw_64/include/QtSql/qsqlquerymodel.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qtsql-config.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.9.0/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QApplication \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGridLayout \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/QGroupBox \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -196,6 +200,7 @@ D:/study/AGH/C_plus_projects/HangManQT/cmake-build-debug/HangManQT_autogen/DNY5Q
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/Qt/6.9.0/mingw_64/include/QtWidgets/qgroupbox.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qlabel.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.9.0/mingw_64/include/QtWidgets/qlayoutitem.h \

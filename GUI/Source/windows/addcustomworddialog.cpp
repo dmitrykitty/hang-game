@@ -19,8 +19,15 @@ AddCustomWordDialog::AddCustomWordDialog(QWidget* parent)
 
     connect(ui->plainTextEditDefinition, &QPlainTextEdit::textChanged,
             this, &AddCustomWordDialog::onDefinitionChanged);
-    connect(ui->radioButtonHard,   &QRadioButton::toggled,
-        this, &AddCustomWordDialog::onDifficultyChanged);
+
+    connect(ui->radioButtonEasy, &QRadioButton::toggled,
+            this, &AddCustomWordDialog::onDifficultyChanged);
+
+    connect(ui->radioButtonMedium, &QRadioButton::toggled,
+            this, &AddCustomWordDialog::onDifficultyChanged);
+
+    connect(ui->radioButtonHard, &QRadioButton::toggled,
+            this, &AddCustomWordDialog::onDifficultyChanged);
 
     // ADD
     connect(ui->pushButtonAdd, &QPushButton::clicked,
@@ -101,4 +108,3 @@ void AddCustomWordDialog::onDefinitionChanged() {
 void AddCustomWordDialog::onDifficultyChanged() {
     ui->pushButtonAdd->setEnabled(validateAll());
 }
-

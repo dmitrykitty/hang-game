@@ -2,7 +2,7 @@
 
 #include <QMainWindow>
 #include <ui_mainwindow.h>
-
+#include <QSqlQueryModel>
 #include "GameController/GameController.h"
 
 namespace Ui {
@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow {
     enum PageIndex {
         PageMenu = 0,
         PageGame = 1,
-        PageStatistisc = 2,
+        PageAbout = 2,
         PageSettings = 3
     };
 
@@ -55,7 +55,7 @@ private slots:
 
     void settingsClicked() const;
 
-    void statisticsClicked() const;
+    void aboutClicked() const;
 
     void exitClicked();
 

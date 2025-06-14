@@ -5,13 +5,7 @@
 #include "DataBase/DataBaseManager.h"
 #include <QDir>
 
-
-
-
 int main(int argc, char *argv[]) {
-
-
-
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(
         Qt::HighDpiScaleFactorRoundingPolicy::RoundPreferFloor
         );
@@ -31,10 +25,5 @@ int main(int argc, char *argv[]) {
     MainWindow w;
     w.setWindowTitle("HangMan");
     w.show();
-
-
-
-
-
     return app.exec();
 }

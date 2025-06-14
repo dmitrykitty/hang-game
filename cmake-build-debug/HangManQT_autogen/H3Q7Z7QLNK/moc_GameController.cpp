@@ -93,7 +93,7 @@ template <> constexpr inline auto GameController::qt_create_metaobjectdata<qt_me
         // Slot 'onSettingsDifficulty'
         QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'onAddCustomWord'
-        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SlotData<void() const>(17, 2, QMC::AccessPublic, QMetaType::Void),
         // Slot 'guessLetter'
         QtMocHelpers::SlotData<void(QChar)>(18, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QChar, 19 },

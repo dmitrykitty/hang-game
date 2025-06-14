@@ -20,7 +20,13 @@ public:
 
     [[nodiscard]] bool wordExists(const QString& word) const;
 
-    bool addUserWord(const QString& word, const QString& def, const QString& diff) const;
+    [[nodiscard]] bool addUserWord(const QString& word, const QString& def, const QString& diff) const;
+
+    bool deleteAllUserWords();
+
+    void updateStats(int wordId, bool guessed);
+
+    void updateTop5();
 
 private:
     DataBaseManager() = default;
@@ -37,6 +43,8 @@ private:
     QSqlDatabase db_;
     QString currentDifficulty_;
 };
+
+
 
 
 #endif //DATABASEMANAGER_H

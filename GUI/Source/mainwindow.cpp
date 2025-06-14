@@ -8,6 +8,7 @@
 
 MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
     ui->buttonBack->setVisible(false);
     ui->buttonPause->setVisible(false);
 
@@ -39,11 +40,10 @@ MainWindow::MainWindow(QWidget* parent): QMainWindow(parent), ui(new Ui::MainWin
             this, &MainWindow::updateDifficultyLabel);
 
 
-
     connect(ui->buttonDifficulty, &QPushButton::clicked, this, &MainWindow::difficultyClicked);
     connect(ui->buttonAddWord, &QPushButton::clicked, this, &MainWindow::addWordClicked);
     connect(ui->buttonSettings, &QPushButton::clicked, this, &MainWindow::settingsClicked);
-    connect(ui->buttonStatistics, &QPushButton::clicked, this, &MainWindow::statisticsClicked);
+    connect(ui->buttonaAbout, &QPushButton::clicked, this, &MainWindow::aboutClicked);
     connect(ui->buttonExit, &QPushButton::clicked, this, &MainWindow::exitClicked);
     connect(ui->buttonBack, &QPushButton::clicked, this, &MainWindow::backClicked);
     connect(ui->buttonPause, &QPushButton::clicked, this, &MainWindow::pauseClicked);
@@ -87,6 +87,11 @@ void MainWindow::addWordClicked() {
 void MainWindow::settingsClicked() const {
     ui->buttonBack->setVisible(true);
     ui->stackedWidget->setCurrentIndex(PageSettings);
+}
+
+void MainWindow::aboutClicked() const {
+    ui->buttonBack->setVisible(true);
+    ui->stackedWidget->setCurrentIndex(PageAbout);
 }
 
 void MainWindow::showDefinitionClicked() const {
@@ -141,10 +146,6 @@ void MainWindow::pauseClicked() {
     this->show();
 }
 
-void MainWindow::statisticsClicked() const {
-    ui->buttonBack->setVisible(true);
-    ui->stackedWidget->setCurrentIndex(PageStatistisc);
-}
 
 void MainWindow::showWonImage() const {
     ui->pictureGame->setPixmap(

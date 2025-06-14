@@ -17,6 +17,7 @@ void GameController::startNewGame() {
         qWarning() << "No word found for difficulty" << currentDifficulty_;
         return;
     }
+    currentWordId_ = id;
     game_ = Game();
     game_.setSecretWord(newWord);
     game_.setDefinition(newDefinition);
@@ -38,9 +39,13 @@ void GameController::guessLetter(QChar letter) {
     }
 
 
-    if (game_.isWon())   emit gameWon();
+    if (game_.isWon()) {
+        emit gameWon();
+        db_.updateStats(currentWordId_, true);
+    }
     if (game_.isLost()) {
         emit gameLost(game_.getSecretWord());
+        db_.updateStats(currentWordId_, false);
     }
 }
 
@@ -59,7 +64,7 @@ void GameController::onSettingsDifficulty() {
     }
 }
 
-void GameController::onAddCustomWord() {
+void GameController::onAddCustomWord() const {
     AddCustomWordDialog dlg{nullptr};
     if (dlg.exec() == QDialog::Accepted) {
         QString w  = dlg.word();
