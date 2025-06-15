@@ -41,11 +41,11 @@ void GameController::guessLetter(QChar letter) {
 
     if (game_.isWon()) {
         emit gameWon();
-        db_.updateStats(currentWordId_, true);
+        //db_.updateStats(currentWordId_, true);
     }
     if (game_.isLost()) {
         emit gameLost(game_.getSecretWord());
-        db_.updateStats(currentWordId_, false);
+        //db_.updateStats(currentWordId_, false);
     }
 }
 

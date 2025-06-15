@@ -131,9 +131,9 @@ bool DataBaseManager::deleteAllUserWords() {
 // void DataBaseManager::updateStats(int wordId, bool guessed) {
 //     QSqlQuery q;
 //     if (guessed) {
-//         q.prepare("UPDATE stats SET guessed_cnt = guessed_cnt + 1 WHERE word_d = :id;");
+//         q.prepare("UPDATE stats SET guessed_cnt = guessed_cnt + 1 WHERE word_id = :id;");
 //     } else {
-//         q.prepare("UPDATE stats SET failed_cnt = failed_cnt + 1 WHERE word_d = :id;");
+//         q.prepare("UPDATE stats SET failed_cnt = failed_cnt + 1 WHERE word_id = :id;");
 //     }
 //     q.bindValue(":id", wordId);
 //     q.exec();
